@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>(Ne)škodný úvod do OOP v jazyce C#</title>
+<date>2015-10-31</date>
+</info>
+<simpara>Lukáš Kotek &lt;<link xlink:href="mailto:lukaskotek@gmail.com">lukaskotek@gmail.com</link>&gt;</simpara>
+<tip>
+<simpara>Tento dokument nemá ambici v žádném slova smyslu suplovat technickou dokumentaci, odborné publikace nebo učebnice, které se zabývají programováním a programovacím jazykem C#. Rovněž není jeho cílem poskytovat dokonale exaktní formulace a definice pojmů ze zmíněné oblasti. Naopak cílí na uživatele (a zde konkrétně na studenty středních škol), kteří do objektového programování zatím pouze jemně vplouvají a potřebují proto nenásilnou formou osvětlit základní pojmy a principy, které s objektovým programování souvisí. Velmi, prosím nazírejte na něj s vědomím výše zmíněného. Toto není a nemá být MSDN.</simpara>
+</tip>
+<simpara><?asciidoc-pagebreak?></simpara>
+<section xml:id="_i_co_je_to_objektově_orientované_programování">
+<title>I. Co je to objektově orientované programování?</title>
+<section xml:id="_i_i_proč_použít_objektové_programování">
+<title>I.I. Proč použít objektové programování</title>
+<simpara>Objektově orientované programování (OOP) je o zcela jiném přístupu k programování, než který byl (a v mnoha případech z dobrého důvodu dosud je) používán. Jak jsme se dívali na prvotně na program dříve? Jako na sled po sobě jdoucích pokynů. Čili:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Krok první: udělej to (třeba načti hodnotu do proměnné);</simpara>
+</listitem>
+<listitem>
+<simpara>Krok druhý: udělej ono (umocni prve načtenou proměnnou na druhou);</simpara>
+</listitem>
+<listitem>
+<simpara>Krok třetí: pokud platí A, proveď B (pokud je číslo nenulové, použij ho jako dělitel).</simpara>
+</listitem>
+</orderedlist>
+<simpara>A podobně bychom mohli pokračovat, je to zjevné?</simpara>
+<simpara>Algoritmus jsme popsali vývojovým diagramem, který pro nás byl přesným návodem co kdy a jak udělat. Program pak pro nás byl strukturovaným přepisem tohoto návodu do konkrétního programovacího jazyka (s jeho příkazy a specifickou syntaxí).</simpara>
+<simpara>Pojďme se podívat na objektově orientované programování (je to dlouhý pojem, pojďme si vystačit se zkratkou OOP, platí?). Předně, OOP vůbec neříká, že to, co je v prvním odstavci není pravda. Algoritmus bude vždy posloupností kroků. OOP říká, že se mění náš pohled na program jako takový. Hlavní pro nás už není postup řešení (jak to jde za sebou), ale to s čím vlastně pracujeme (a o co se vlastně jedná, z čeho se to skládá, jak se to chová, jak to popíšeme?).</simpara>
+<note>
+<simpara>Všimli jste si tajemného „ono“? To ono, tajemná věc, o které mluvíme se nazývá objekt.</simpara>
+</note>
+</section>
+<section xml:id="_i_ii_něco_teorie_k_základní_terminologii">
+<title>I.II. Něco teorie k základní terminologii</title>
+<section xml:id="_objekt">
+<title>Objekt</title>
+<simpara>Máte tady tedy tajemný pojem objekt. Vůbec není tajemný. Objekt je prvek, kterým se snažíme popsat něco z reálného světa. Co nás napadá? Vezměme těžkou klasiku. Člověka, ale ne ledajakého člověka, vezměme konkrétního člověka, spolužáka, kamaráda, např. Igora Nováka (budeme jeho služeb v průběhu textu využívat i dále). Co bychom o něm mohli říct? Třeba, že je nějak vysoký, umí nějaké věci, že když spadne ze schodů bude na to nějak reagovat.</simpara>
+<simpara>Všimněte si toho hlavního:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Nás nezajímá jen tak ledajaký člověk (těch je spousta), nás zajímá Igor Novák s konkrétními vlastnostmi schopnosti a dovednostmi. Mohli bychom popsat obecného člověka s přesně definovanými vlastnostmi a schopnostmi? Sotva, každý je něčím specifický. Igor Novák je náš jeden konkrétní objekt.</simpara>
+</listitem>
+<listitem>
+<simpara>Nás nezajímají jen samotné údaje tohoto člověka. Nás nezajímá čistě hodnota cholesterolu, ani výška, ani váha. Ne. Pro nás je zásadní, že je to Igorova hodnota cholesterolu, Igorova výška a Igorova váha. Nejsou to samostatně stojící prvky, pevně se váží k Igorovi, popisují ho, jsou s ním spjaté. Igor je objekt, je jedinečný.</simpara>
+</listitem>
+</orderedlist>
+<simpara>Jeli-to jasné, pojďme se posunout o kousek dále, k zásadnímu pojmu třída.</simpara>
+</section>
+<section xml:id="_třída">
+<title>Třída</title>
+<simpara>Už jsme si řekli, že Igor je objekt. Že Igor je jedinečný. Ale je tak jedinečný, že bychom ho nemohli k někomu připodobnit? Co o něm víme? Igor je také člověk. Jako já, jako vy. Vy i já máme mnoho společných vlastností. Všichni jsme nějak vysocí, všichni máme nějakou váhu, hodnotu cholesterolu, každý umíme mluvit, ale mluvíme všichni stejně? Rozhodně ne. Co z toho plyne:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Existuje mnoho lidí. Jsou různí, ale mohou mít společné vlastnosti;</simpara>
+</listitem>
+<listitem>
+<simpara>Každý jsme vytvořený podle společného vzoru, každý máme DNA, ale nikdo stejnou.</simpara>
+</listitem>
+</orderedlist>
+<simpara>Všichni známe DNA, platí? Kdo ne, dohledá si na (něco)pedii. Představme si, že je to šablona, podle které jsou vytvářeni konkrétní lidé. Smícháním určitých genů vznikne určitý člověk. Ještě jednou: je mnoho lidí, ale Igor Novák je jen jeden. Všichni lidé jsou ale vytvořeni podle společného vzoru, podle společné šablony. Tím se dostáváme k jádru věci.</simpara>
+<simpara>Vzor? Šablona? Pojďme použít lepší termín: třída. Třída je papír, na kterém je napsáno, že každý člověk má být nějak vysoký, má mít nějaký věk, má mít nějaké schopnosti. Jakou výšku? Jaký věk? Jaké schopnosti? To třída netuší. Je to opravdu jen šablona. Jeto prázdný formulář. Má kolonky, ale ty kolonky nejsou vyplněné. Až když je vyplníme, vznikne konkrétní člověk. Vznikne náš Igor.</simpara>
+<simpara>Tohle je zásadní moment. Tvrdíme, že:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Igor je objekt (to už jsme tvrdili dříve);</simpara>
+</listitem>
+<listitem>
+<simpara>Že Igor je člověk, které je vytvořený podle šablony, vzoru, formuláře „člověk“.</simpara>
+</listitem>
+</orderedlist>
+<note>
+<simpara>Igor je tedy unikátním a neopakovatelným případem člověka. Vyplnili jsme formulář člověk a vznikl Igor. Vyplnili bychom ho jinak a vznikl by Pepa, ještě jinak a měli bychom tu Janu, úplně jinak a měli bychom tu Jamese T. Kirka. Igor je tedy instancí třídy člověk. Co je instance třídy? Je to vyplněný formulář, je to objekt. Objekt je tedy totožný s instanci třídy.</simpara>
+</note>
+</section>
+<section xml:id="_Člen_třídy">
+<title>Člen třídy</title>
+<simpara>Tahle pasáž bude stručná. Už víme, kdo je to Igor. Už víme, co je to člověk. Člen třídy nám vypovídá o tom, o jakého člověka se jedná. Je-li člověk formulář, pak člen třídy je konkrétní položkou. Členové třídy, ale mohou být velice různí:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Mohou říkat, že člověk má mít nějakou výšku, věk či barvu očí;</simpara>
+</listitem>
+<listitem>
+<simpara>Mohou říkat, že člověk může nějak měnit svůj stav, že člověk nějak koná;</simpara>
+</listitem>
+<listitem>
+<simpara>Mohou říkat, že člověk může nějak reagovat na nějaké události.</simpara>
+</listitem>
+</orderedlist>
+<simpara>Pojďme krok za krokem. První případ nazýváme vlastností, či atributem (popisujeme, jaký – a pozor zase se jedná až o konkrétního jedince – člověk je). Igor má modré oči. Druhý případ nazýváme metodou (popisujeme jak se daný člověk projevuje). A zase každý člověk umí hubnout, ale pouze Igor umí hubnout o 5 kg za půl roku. A reakce na události? Představte si, že vás někdo udeří. Každý člověk na to bude reagovat, ale pouze Igor uteče rychlostí 20 km/h směrem na severovýchod za hlasitých výkřiků. Zde jsme u pojmu událost (specifický případ vlastnosti).</simpara>
+</section>
+</section>
+<section xml:id="_i_iii_dědičnost_mezi_třídami">
+<title>I.III. Dědičnost mezi třídami</title>
+<simpara>Dosud jsme byli na výrazně abstraktní rovině. Pojďme se tedy (mimo jiné) podívat, jak by se výše zmíněné záležitosti zapsaly v programovacím jazyce C#. Nejprve ale stručně k dědičnosti. Řekli jsem si, že Igor (objekt) je člověk (třída). Je jen jeden náš konkrétní Igor, ale je mnoho lidí. Co kdybychom je zúžili? Co kdybychom tvrdili, že Igor je zároveň něco jiného? Pojďme na to:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Igor Novák je student. Existuje jen jeden student? Rozhodně ne. Student tedy bude třída. Studentů může být mnoho. Ne tolik jako lidí, ale stále mnoho.</simpara>
+</listitem>
+<listitem>
+<simpara>Igor Novák je student střední školy. Existuje jen jeden student střední školy? Ne. Student střední školy tedy bude opět třída. Studentů střední školy bude zase o něco mně než studentů obecně, ale pořád se nejedná o unikát.</simpara>
+</listitem>
+</orderedlist>
+<simpara>Tohle nám ale plodí mnoho, různě sofistikovaných, otázek:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Nemá student střední školy mnoho společného s jakýmkoliv studentem? (Vskutku ano.)</simpara>
+</listitem>
+<listitem>
+<simpara>Nemá student mnoho společného s jakýmkoliv člověkem? (Opět ano.)</simpara>
+</listitem>
+</orderedlist>
+<simpara>Student střední školy (třída) tedy bude mít mnoho společných vlastností (atributů) a schopností (metod) se studentem obecným. A co mnoho, všechny! Obecný student bude pak mít mnoho společných vlastností a schopností s člověkem (a opět, co mnoho, všechny!). Zde se dostáváme k dědičnosti. Student střední školy dědí (vlastnosti a schopnosti) od studenta obecného. A student obecný dědí totéž od člověka. Obecné? Pojďme to rozklíčovat:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Člověk má věk, výšku a váhu. Každý? Bezpochyby.</simpara>
+</listitem>
+<listitem>
+<simpara>Má student věk, výšku a váhu? Opět bezpochyby. Student to tedy dědí od člověka. Student  má navíc studijní průměr a předměty.</simpara>
+</listitem>
+<listitem>
+<simpara>Má student střední školy studijní průměr a předměty? Ano, opět ano. Každý student střední školy má tyto atributy. Student tedy dědí od obecného studenta. Má ale každý student maturitní zkoušku? Nebo studuje každý student na střední škole? Ne? Pak bychom museli náš model dále upravit.</simpara>
+</listitem>
+</orderedlist>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="uml.jpg"/>
+</imageobject>
+<textobject><phrase>uml</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<note>
+<simpara>Shrňme to. Student střední školy dědí (dědí ve smyslu přejímá stejné členy, čili vlastnosti a metody) od studenta obecného. A student obecný dědí od člověka. Od čeho by mohl dědit člověk? Třeba od savce (každý člověk je savec a má s nimi mnoho společného). S čím pak savec? Se zvířetem. S čím zvíře? S jakoukoliv živou formou. Vidíte? Jsme stále obecnější a obecnější. A proto: není jedna žitá forma (třída), není jedno zvíře (třída), není jeden člověk (zase třída!). Ale je pouze jeden Láďa Novák jakožto unikátní případ studenta.</simpara>
+</note>
+</section>
+<section xml:id="_i_iv_zapouzdření">
+<title>I.IV. Zapouzdření</title>
+<simpara>Další tajemný pojem. Dotýká se ale vskutku prostých věcí. Zůstaňme u našeho Igora. Víme, jak je vysoký? Víme (nebo snadno zjistíme). Víme, jak se chová? Víme. Dovedeme zjistit jeho reakce na konkrétní situace? Vskutku, Pavlov by mohl povídat, že. Zatím jsme se bavili o tom, jak se nám Igor (objekt, pamatujeme?) jeví navenek. Jaký je ale Igor uvnitř? Zajímá nás to vůbec?</simpara>
+<simpara>Na tomto místě se opět dostáváme k podstatě věci. Zajímat nás to může, ale nemusí:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Co když chceme pouze spolupracovat s Igorem (stále objekt) na konkrétním úkolu? Pak nás zajímá, jaký to je pracant, jak se projevuje v rámci kolektivu, jak reaguje. Zajímá nás jeho rozhraní (ano, to je termín z objektového programování pro tento účel).</simpara>
+</listitem>
+<listitem>
+<simpara>Zajímá nás ale jaký je Igor uvnitř? Igor (objekt) je odvozen ze člověka (třída) a jako kterýkoliv jiný, je unikátní. Ale k tomu podstatnému. Zajímá nás to ale? K čemu vědět jak pracují jeho játra? Srdce? Jaký je jeho krevní tlak?</simpara>
+</listitem>
+</orderedlist>
+<simpara>Opět jsme u podstaty věci. U objektového programování nás zajímá, jak se kdo (konkrétní objekt) chová a jaké má vlastnosti. Proč se tak chová a proč má vlastnosti je nám lhostejné. Co když ale sami vytváříme nějaký určitý (ha, ne objekt, ale jeho popis, čili co? Ano, třídu!) Pak musíme přesně určit, proč se co jak chová a jaké je to uvnitř. Jaké vlastnosti a schopnostmi má (třeba člověk, byli-li bychom schopni ho vytvořit, že) skryté uvnitř a jakými se má naopak projevovat navenek.</simpara>
+<simpara>To je podstata zapouzdření. Každá třída má vlastnosti a metody (kolonky, vzpomínáte), které jsou  dostupné buď čistě uvnitř ní samotné (pak bychom je nazvali privátní, popř. <literal>protected</literal>), nebo jímž se na základě třídy vytvořený objekt projevuje navenek, čili o tom, jaké má rozhraní (to bychom se bavili o veřejných, pamatujeme?). Zdůrazněme to znovu, třída (třeba člověk) se navenek nijak projevovat nebude, ale Igor, jakožto instance této třídy (objekt), může být moc zajímavý (mít vlastnosti a metody).
+Jasné? Pojďme si to zkomplikovat :-)</simpara>
+</section>
+<section xml:id="_i_v_co_jsou_to_modifikátory_přístupu">
+<title>I.V. Co jsou to modifikátory přístupu?</title>
+<simpara>Co označujeme za členy třídy už víte. Zapouzdření znáte také. Každému členu třídy je možné nastavit určité modifikátor přístupu. Zamyslete se nad tím spojením. Modifikujeme přístup. Říkáme, kdo k členu dané třídy smí přistoupit a kdo ne. Běžně se s nimi setkáváte (v C# ani nemůžete jinak), už od  prvního otevření vývojového prostřední vidíte slova jako <literal>public</literal>, <literal>private</literal> a mnohá jiná. Nyní se podíváme na ty nejzákladnější ze základních (a zároveň i nejčastěji používaných).</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>K čemu slouží je to <literal>private</literal>? Použijete ho, když chcete docílit toho, aby dané člen byl dostupný pouze v rámci třídy a dost. Vytvoříte na základě třídy objekt? Ne, člen nebude dostupný navenek. Podědíte ze třídy? Opět smůla.</simpara>
+</listitem>
+<listitem>
+<simpara>Jak je to u <literal>protected</literal>? Stejně jako v předchozím případě s důležitým rozdílem. Člen bude dostupný ve všech třídách, které ze třídy, kde je umístěn váš člen, dědí. Bude dostupný i navenek? Stále ne, k tomu je třeba další z našeho výčtu.</simpara>
+</listitem>
+<listitem>
+<simpara>Aneb modifikátor přístupu <literal>public</literal>. Je samopopisný. Je veřejný. Takovýto člen bude poděděn a zároveň bude vidět i navenek na základě třídy vytvořeného objetu. Ano, bude tvořit jeho rozhraní. Přesně v duchu kapitolek o pár řádků výše.</simpara>
+</listitem>
+</orderedlist>
+<screen>/* Demonstrace modifikátorů přístupu */
+
+namespace NeskodnyCsharp
+{
+    class Clovek
+    {
+        private int ID; // Vlastnost je přístupná pouze ve třídě Clovek
+        protected int Vyska;    // Vlastnost je možné zdědit
+        public int Vek; // Vlastnost může tvořit rozhraní objektu
+    }
+
+    class Student : Clovek
+    {
+        public Student()
+        {
+            Vyska = 188;    // Lze přistupovat k poděděné vlastnosti
+            /* Inicializace nového objektu na základě třídy Clovek */
+            Clovek muz = new Clovek ();
+            muz.Vek = 27;   // Přístup k vlasnoti 'Vek' tvořící rozhraní objektu
+        }
+    }
+
+}</screen>
+<simpara>Vždy, když nějaký prvek chcete použít, zamyslete se nad tím, zda ho aktuálně použít můžete. Není-li modifikátor přístupu určen, automaticky se použije <literal>private</literal>, čili nejpřísnější možná varianta. Pozor na to, je to odlišnost od mnoho jiných jazyků (jako třeba Java), kde mohou být jiné zvyklosti.</simpara>
+<note>
+<simpara>Pakliže váháte nad tím, který modifikátor přístupu u vámi vytvářeného členu použít, odpovězte si na otázku: Kde a kdo musí nezbytně tento prvek vidět? Snažte se nastavit tuto úroveň na spíše přísnou než naopak. Snáze opravíte chybu, když někomu (nebo něčemu) dáte oprávnění málo (věřte, on se ozve), než chybu, kdy oprávnění k přístupu byla příliš široká (ten údržbář asi opravdu neměl mít přístup k ovládání reaktoru). Prostě, buďte opatrní (neslyšíte to naposledy).</simpara>
+</note>
+</section>
+</section>
+<section xml:id="_ii_jaké_známe_druhy_tříd">
+<title>II. Jaké známe druhy tříd?</title>
+<section xml:id="_ii_i_popis_jednotlivých_tříd">
+<title>II.I. Popis jednotlivých tříd</title>
+<simpara>S pojmem třída jsme se tedy už střetli. Vzor, šablona, popis. To jsou slova, která udržte v paměti. Budeme je potřebovat. Na řádcích o kousek výše jsme si popsali, jak se třída může chovat. Jednalo se o klasický případ, kdy na základě „vyplnění formuláře“ vytváříme konkrétní objekt. Takovou třídu si můžeme nazvat řekněme „klasickou“. Mnoho o ní ale zatím nevíme.</simpara>
+<section xml:id="_klasická_třída">
+<title>Klasická třída</title>
+<simpara>Obecná, obyčejná, prostě základ, ze kterého vycházíme. Stále rozvíjíme situaci popsanou výše. Pojďme se podívat na to, kde a jak danou třídu definovat, a jak se přiblížit její implementaci v programovacím jazyce C#. Jistě jste si všimli, že když založíme nový projekt, dojde k vytvoření minimálně jednoho souboru, ve kterém se vyskytuje jmenný prostor (namespace), uvnitř něhož je typicky vytvořena jedna třída. Co s tím?</simpara>
+<simpara>Jmenný prostor je oblast, ve které na sebe jednotlivé třídy vidí. Když vytvoříme jmenný prostor <literal>Maturita</literal> a uvnitř něho třídy <literal>Komise</literal>, <literal>Student</literal> a <literal>Zkousejici</literal> mohou na sebe (bez dalšího) bez problémů vidět. Existovat vedle sebe a čekat než někdo vytvoří jejich instance, čili objekty. Na základně třídy <literal>Maturita</literal> např. objekt maturita2015, na základě třídy <literal>Zkousejici</literal> např. kotekDrsnyUcitel a podobně. Rozveďme si odpověď na otázku, kde třídy definovat:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Nejčastější situace je, když máme jeden soubor, uvnitř kterého je definována právě jedna třída, která se nachází v rámci jednoho jmenného prostoru. Jsou programovací jazyky, které to ani jiným způsobem neumí a vyžadují právě striktní situaci jedna třída uvnitř jednoho prostoru (a má to svou logiku a smysl z hlediska přehlednosti).</simpara>
+</listitem>
+<listitem>
+<simpara>Druhá možnost je mít uvnitř jednoho souboru v jednom jmenném prostoru více tříd. Typicky je to vhodné v situaci, kdy chceme tyto jednotlivé třídy využít relativně jednoduchým primitivním způsobem. Naopak si představte, že byste měli dvě třídy v jediném souboru a chtěli je souběžně editovat. Vskutku, to není hezká představa skákat  neustále z řádku 353 na řádek 27, není-liž pravda?</simpara>
+</listitem>
+<listitem>
+<simpara>Pak je tu situace třetí. Můžeme mít dva soubory sdílející jeden a ten stejný jmenný prostor, ve kterých je obsažena právě jedna (ano jedna jediná) třída. Bavíme se pak, poměrně logicky, o tzv. částečných&#8201;&#8212;&#8201;partial&#8201;&#8212;&#8201;třídách. I tato situace může mít spoje opodstatnění. Poměrně běžný je případ, kdy v jedné partial třídě je generovaný kód (pokud jste někdy pracovali, a vy jste pracovali, ve Windows Forms, znáte to dobře) a ve druhé kód, kterým pak ručně rozšiřujeme kód ze souboru prvního. Důležité je si uvědomit, že pouze dohromady je vytvořena jedna celistvá třída s jedním názvem.</simpara>
+</listitem>
+</orderedlist>
+<screen>/* Demonstrace částečných 'partial' tříd */
+
+namespace NeskodnyCsharp
+{
+    /**
+     * Každá z 'partial' tříd může být v jiném souboru,
+     * ale musí být ve stejném namespace
+    */
+
+    partial class Clovek
+    {
+        public int Vek;
+    }
+
+    partial class Clovek
+    {
+        public int Vyska;
+    }
+
+    class Program
+    {
+        public static void Main()
+        {
+            /* Inicializace nového objektu na základě třídy Clovek */
+            Clovek muz = new Clovek();
+            /* Lze přistupovat k oběma vlastnostem z obou 'partial' tříd */
+            muz.Vek = 27;
+            muz.Vyska = 189;
+        }
+    }
+}</screen>
+<note>
+<simpara>Co si z toho odnést? Předně to, že není jedno správné řešení. Není  žádné dobré versus špatná. Lepší nebo horší. Zahoďte tento způsob uvažování a omezte se na mnohem elegantnější: vhodné a nevhodné. Všechny zmíněné třídy mají své opodstatnění a své využití. Dbejte na to.</simpara>
+</note>
+</section>
+<section xml:id="_abstraktní_třída">
+<title>Abstraktní třída</title>
+<simpara>Je třída, ze které nemůžete (a nechcete) vytvořit její instanci, nemůžete vytvořit objekt. Abstraktní třída je úplně neužitečná bez toho, aby z ní někdo (nějaká jiná třída) dědila. Představte si, že máme třídu Firma. V každé firmě budeme chtít počítat platy, třída firma by tedy měla mít logicky metodu (ano, přesně metodu, podívejme se o pár odstavců výše), která slouží k takovému výpočtu. Něco na způsob VypočtiMzdy (ano, tak by se mohla jmenovat).</simpara>
+<simpara>Položte si teď zásadní otázku: Víte, jak se budou počítat mzdy u každé jednotlivé firmy? Stejně? Sotva. Systém prémií, benefitů (vidíte, jak se to snažím brát optimisticky) bude v různých oblastech dost jiný. Takže pozor. Tvrdíme, že každá firma potřebuje nějak mzdy počítat, ale že těžko nalezneme nějaký jednotící model. A to je ono! O tom jsou abstraktní třídy. Nemůžeme vytvořit objekt na základě třídy Firma, ale můžeme pevně předepsat, že každá třída, která z ní dědí, mzdy počítat musí. Musí obsahovat metodu VypočtiMzdy. Předepišme to tedy. Kde? No právě v abstraktní třídě. Která to je? V tomto případě právě třída Firma. Shrňme to:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Abstraktní třída Firma bude obsahovat deklaraci (opět abstraktní) metody VypočtiMzdy. Pouze deklaraci (fakt, že má existovat), nikoliv definici (jak to má konkrétně počítat). Ještě jednou z této třídy nemůžeme vytvořit její instanci (objekt).</simpara>
+</listitem>
+<listitem>
+<simpara>Třídy (teď již „obyčejné“), které mohou jmenovat např. <literal>Automobilka</literal> a Reklamní, které budou dědit z Firmy, pak budou muset každá obsahovat jinou definici metody VypočtiMzdy. Muset jako muset. Nebudou-li ji obsahovat, projekt nepůjde zkompilovat. Hotovo. Jak prosté, milý Watsone.</simpara>
+</listitem>
+</orderedlist>
+<simpara>Abstraktní třídy tedy nebyly právě intelektuální výzvou, pojďme na třídy statické :-)</simpara>
+</section>
+<section xml:id="_statická_třída">
+<title>Statická třída</title>
+<simpara>Slyšíte to v tom názvu? Statická třída. Neměnná třída. Hotová třída. Ani z této třídy nevytváříme objekty, a ani u této třídy to hlavně dělat nechceme. Měli jste někdy potřebu vypsat nějaká data do konzole v přesně definovaném formátu? Nebo vícenásobně použít nějakou funkci, kterou jste někde definovali? Tady jsme u toho. Opět si položte otázku: Má smysl, abyste definovali např. Metodu <literal>VypisVeSloupcich</literal> v deseti různých třídách? Asi řeknete ne, ale vyvstává tu logická námitka: Proč nemohu tuto metodu definovat ve třídě, ze které ostatní dědí?</simpara>
+<simpara>Toto je zásadní moment. Proč ne? Vždyť to má svou logiku. Uvědomme si následující. Pokud mezi sebou třídy dědí, znamená to, že mezi sebou mají vztah, logickou návaznost, propojenost vztahu od obecného ke konkrétnímu. Od třídy <literal>Firma</literal> může dědit třída <literal>Automobilka</literal>, od třídy <literal>Automobilka</literal> třída <literal>CeskaAutomobilka</literal>. V pořádku? Dobrá. Asi se shodneme, že každá z těchto tříd by mohla chtít umět vypsat nějaká data ve sloupcích. Stále v pořádku? OK. Znamená to ale, že třída Pračka dědící ze třídy Výrobek, žádná taková data k vypsání nemá? Aha, jsme u toho. Problém je následující:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Metoda <literal>VypisVeSloupcich</literal>, která by bylo obsažená ve třídách Firma a Výrobek, by dělala přesně to samé, přesně ve stejných situacích. Pracovala by přesně se stejnými vstupními daty. Byla by stejná. Opakování, opakování, opakování. To je přesně to co nechceme. Pamatujme na to, vždy, když narazíme na opakování, má nám to značit, že je něco špatně (a bohužel dost typicky a pravděpodobně na naší straně, to jest hoře programátorovo).</simpara>
+</listitem>
+<listitem>
+<simpara>Správný postup je, jak název kapitolky napovídá, použít statickou třídu. Statická třída obsahuje výčet obecně použitelných metod nebo konstant, které chceme použít nezávisle na dalším. Naše statická třída by se tedy mohla jmenovat např. Výstup a metoda <literal>VypisVeSloupcich</literal> by jako argument mohla přebírat data jakékoliv jiné třídy, které by bylo potřeba v nějaký okamžik vypsat.</simpara>
+</listitem>
+</orderedlist>
+<note>
+<simpara>Statická třída je tedy o výčtu. O znovupoužitelnosti. O použitelnosti nezávisle na určitých datech. Vypadá tajemně, ale není. Znáte třídu Math? (měli byste), obsahuje metody pro výpočet sinu a konstanty jako je PI. Zkoušeli jste si někdy vytvořit instanci třídy Math? Asi tušíte kam směřuji, nešlo by to, je statická. Vztahuje se výpočet sinu a PI ke konkrétní oblasti? (Hmm, možná tak k matematice.) Ale jistě oba prvky použijeme v mnoha jiných situacích (konstrukce, analytická geometrie, energetika), až v desítkách či stovkách. Ne v jedné oblasti. Řekli jsme mnoho a vychází nám jasný to kandidát na statickou třídu.</simpara>
+</note>
+</section>
+</section>
+<section xml:id="_ii_ii_klíčové_pojmy_k_třídám">
+<title>II.II. Klíčové pojmy k třídám</title>
+<section xml:id="_konstruktor">
+<title>Konstruktor</title>
+<simpara>Zatím jsme se drželi jen u těch nejzákladnějších termínů, pojďme se podívat na některé lehce specifičtější. Co je to konstruktor? Existuje na to extrémně stručná odpověď: metoda. Konstruktor je nicméně metoda, která je velmi specifická a to následujícími věcmi:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Jmenuje se stejně jako třída, ve které je obsažena. Třída <literal>Skola</literal>, tedy bude obsahovat konstruktor s název <literal>Skola()</literal>.</simpara>
+</listitem>
+<listitem>
+<simpara>Nemá žádný návratový typ. U obyčejné metody musíme určit minimálně to, že metoda žádnou hodnotu nevrací (použijeme pak klíčové slovo void). U konstruktoru ne.</simpara>
+</listitem>
+<listitem>
+<simpara>Je volána v okamžiku, kdy vytváříme konkrétní instanci třídy. Ano píšeme-li <literal>Skola ssps = new Skola()</literal>, pak výraz <literal>Skola()</literal> je konstruktorem této třídy.</simpara>
+</listitem>
+</orderedlist>
+<simpara>K čemu je nám v praxi konstruktor dobrý? Znovu se vraťme k tomu, k čemu je nám třída. Je to prázdný formulář, který chceme vyplnit. Klíčové je kdy. Pokud bychom vytvořili objekt podle příkladu výše (v bodu 3), pak je to sice formulář s razítkem, ale stále poněkud smutně prázdný. Objekt existuje, ale je takový lejaký nijaký. Co s tím?</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Můžeme postupně přistoupit k veřejně přístupným (tedy <literal>public</literal>) vlastnostem objektu (tvoří rozhraní tohoto objektu, pamatujeme?) a postupně určit, že <literal>ssps</literal> má takovéhoto ředitele, takovéto studenty apod. To jest cesta první.</simpara>
+</listitem>
+<listitem>
+<simpara>Nebo můžeme tyto údaje předat přímo konstruktoru jako argumenty. V okamžiku, kdy někdo vytváří objekt na základě třídy škola, je tímto donucen, aby alespoň minimální množství argumentů předal.</simpara>
+</listitem>
+</orderedlist>
+<screen>/* Jak lze použít konstruktor */
+
+namespace NeskodnyCsharp
+{
+    class Skola
+    {
+        /* Třídní proměnné Nazev a Adresa */
+        public string Nazev;
+        public string Adresa;
+
+        /* Konstruktor třídy a jeho typické použití */
+        public Skola(string naz, string adr)
+        {
+            /**
+             * Přiřazení výchozích hodnot do třídních proměnných
+             * pomocí přiřazení v konstruktoru
+            */
+            Nazev = naz;
+            Adresa = adr;
+        }
+    }
+
+    class Program
+    {
+        public static void Main()
+        {
+            /**
+             * Vytvoření nového objektu 's' dle konstruktoru Skola()
+             * třídy Skola s jeho argumenty
+            */
+            Skola s = new Skola("SPS", "Adresa 25, Praha");
+        }
+    }
+}</screen>
+<simpara>Protože programování není o uctívání svatých krav, můžeme tak oba přístupy kombinovat, třeba použít konstruktorů více s různými požadovanými argumenty, pak se bavíme o přetěžování konstruktoru. (Chcete vědět víc? Podívejte se na kapitolu „Proč přetěžovat metody“.) Můžeme tak klidně definovat konstruktor, který nepřebírá žádný argument; který přebírá argument jeden, nebo další, který jich přejímá více. Co když ve třídě žádný konstruktor nepoužijeme? Je to prosté, pak se použije implicitní konstruktor, který nevidíme, ale je tam. Byl, je a bude.</simpara>
+</section>
+<section xml:id="_slůvka_this_a_base">
+<title>Slůvka „this“ a „base“</title>
+<simpara>Co znamenají? Je dost pravděpodobné, že jste se s nimi někde v rámci tvořeného zdrojového kódu setkali. Neskrývá se za nimi nic tajemného. Běžně v rámci nějaké třídy voláme její člen (pamatujeme, co člen znamená?). Nejčastěji ho voláme čistě jeho názvem (a v C# není zvlášť mnoho situací, které by nás nutili k tomu dělat to jinak). Vrátíme-li se k naší třídě <literal>Clovek</literal> vidíme, že jsme pracovali s členem (tady atributem) značícím výšku (nazvěme ho tedy <literal>Vyska</literal>). Můžeme ho v rámci třídy volat jednoduše, tedy pouze <literal>Vyska</literal>, jako by to byla jakákoliv jiná proměnná. Stejně tak dobře ale můžeme napsat <literal>this.Vyska</literal>. Proč je tomu tak?</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Slovo this nám ukazuje na konkrétní instanci třídy, tedy objekt. Můžeme mít mnoho různých instancí třídy <literal>Clovek</literal> (Igora, Honzu, kohokoliv) a každá z nich v sobě bude obsahovat vlastnost <literal>Vyska</literal>. Zápisem <literal>this.Vyska</literal> říkáme, že se vztahujeme právě k tomuto konkrétnímu člověku a atributem <literal>Vyska</literal> k hodnotě poplatné právě a jen tomuto člověku.</simpara>
+</listitem>
+<listitem>
+<simpara>Můžeme si to demonstrovat ještě jinak. Program, který není spuštěný, leží na pevném disku. V okamžiku, kdy ho spustíme, se stane procesem a získá svá specifika (přidělenou operační paměť, prioritu procesu) včetně konkrétních hodnot jeho atributů. V čem je klíčový fígl? Daný program můžete spustit vícekrát, jedná se tedy o více spuštěných instancí (a slůvko this se vztahuje ke každému jednotlivému z nich).</simpara>
+</listitem>
+</orderedlist>
+<simpara>Jak byl popis slůvka this vyčerpávající, popis slůvka base bude o to kratší. Týká se dědičnosti. V C# máme vždycky maximálně jednu třídu, ze které dědíme, ne více. A pojem base se vztahuje právě k ní. Může nastat situace, kdy budeme potřebovat sáhnout na nějaký člen obsažený v takové třídě, přesně k tomu se base hodí. Ostatně to je přesně ten důvod, proč takové třídě říkáme bázová. Pojďme si možné situace shrnout a ilustrovat na příkladu:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Třída <literal>Student</literal> dědí ze třídy <literal>Clovek</literal>. Uvěřitelný předpoklad. Budu-li si chtít sáhnout v rámci kódu ve třídě <literal>Student</literal> na atribut <literal>Vyska</literal> ve tvaru, ve kterém je obsažený ve třídě <literal>Clovek</literal>, napíšu poměrně přímočaře <literal>base.Vyska</literal>. Lehké, že?</simpara>
+</listitem>
+<listitem>
+<simpara>Vaše úplně logická otázka je, proč bychom něco takového vůbec měli dělat? Vždyť jsme obsah třídy <literal>Clovek</literal> podědili (ano, máme-li nastavené modifikátory přístupu minimálně na <literal>protected</literal>). Máte pravdu. Vtip je v tom, že ne vždy chceme v aktuální třídě použít poděděný člen přesně v takovém tvaru, ale chceme pracovat s oběma.</simpara>
+</listitem>
+<listitem>
+<simpara>Zmatečné? Možná to tak na první pohled vypadá, ale všechno bude křišťálově čisté hned, jak se dostane k další kapitole o polymorfismu. Proteď si zapamatujme, že s base se asi nejčastěji v C# setkáme, když chceme přebrat ze třídy, ze které dědíme konstruktor a třeba ho mírně doplnit a rozšířit. Tajemné? Není, podívejte se na příklad níže.</simpara>
+</listitem>
+</orderedlist>
+<screen>/* Jak prakticky využít 'base' a 'this' */
+
+namespace NeskodnyCsharp
+{
+    class Clovek
+    {
+        public int Vyska;
+
+        public Clovek(int vys)
+        {
+            /* Oba dva zápisy dělají naprosto totéž */
+            this.Vyska = vys;
+            Vyska = vys;    // Zkrácený tvar přiřazení
+        }
+    }
+
+    class Student : Clovek
+    {
+        public string Skola;
+
+        /**
+         * Podědění bázového konstruktoru a jeho rozšíření
+         * o další argument - určení školy
+        */
+        public Student(int vys, string sko) : base(vys)
+        {
+            Skola = sko;    // Opět, lze zapsat i jako this.Skola = sko;
+        }
+    }
+}</screen>
+<simpara>Vidíte, že na tom nic není. Námi nově vytvořený konstruktor (ve třídě <literal>Student</literal>) zbytečně neopakuje, co už dělá konstruktor v bázové (to slůvko si pamatujme) třídě <literal>Clovek</literal>. Přebírá argumenty poplatné bázovému konstruktoru a předává mu je, zatímco sám nově vyžaduje pouze nový argument <literal>skola</literal>, který předává do třídní proměnné <literal>Skola</literal>. Pouze a jen to, žádný zbytečný kód navíc. (A co si budeme říkat, pouze a jedině tam má smysl. Chodí snad každý člověk do školy?)</simpara>
+</section>
+</section>
+</section>
+<section xml:id="_iii_k_čemu_slouží_a_co_je_to_polymorfismus">
+<title>III. K čemu slouží a co je to polymorfismus?</title>
+<section xml:id="_iii_i_proč_přetěžovat_metody">
+<title>III.I. Proč přetěžovat metody</title>
+<simpara>Protože chceme pro metody používat hezké názvy. A spolu s tím – protože nechceme používat mnoho podobných (a lehce zaměnitelných) názvů. To je podstatou. Z čeho ale vyplývá taková potřeba? Můžeme chtít mít v našem programu metody, které dělají principiálně totéž, ale přebírají různý počet argumentů. Jak by to tedy mohlo vypadat? Pojďme přijít na nějaký příklad.</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Metoda, která vypisuje počet sekund na základě vstupních dat, by se mohla nazývat, řekněme <literal>VypisSekundy</literal>. Co by taková metoda mohla přebírat na vstupu jako argument? Dny? Hodiny? Minuty? Dny a hodiny? Dny, hodiny a minuty?</simpara>
+</listitem>
+<listitem>
+<simpara>Pro každou z těchto situací bycho dovedli vymyslet hezký název. Něco a la <literal>VypisSekundyNaZakladeHodin</literal>, <literal>VypisSekundyNaZakladeHodinMinut</literal>. Už teď si je nepamatujete, že? Přitom původní název <literal>VypisSekundy</literal> je zapamatovatelný dokonale. A tady nastupuje přetěžování, my tento název vícenásobně použít opravdu můžeme.</simpara>
+</listitem>
+<listitem>
+<simpara>Pozor, přetěžování není všespásné. Použijeme ho, když máme různý počet argumentů, nebo když máme argumenty jiného typu. Kdybychom chtěli přetížit název metody <literal>VypisSekundy</literal> a na vstupu předávat jako jeden argument v prvním případě počet minut (jako celé číslo), ve druhém pak počet hodin (zase jako celé číslo), máme smůlu.</simpara>
+</listitem>
+</orderedlist>
+<simpara>Chtěl jsem napsat dlouhý vysvětlující odstavec, ale není kód výše jasný? Máme hezké zapamatovatelné názvy metod? Máme. Mají metody různý počet argumentů? Opět ano. Takže jsme právě viděli podstatu přetěžování. A o tom to je.</simpara>
+</section>
+<section xml:id="_iii_ii_kdy_použít_překrývání">
+<title>III.II. Kdy použít překrývání</title>
+<simpara>Všimněte si, že doteď jsme se pohybovali pouze v rámci jedné třídy. Všechny přetížené metody tam byly obsaženy hezky pěkně pod sebou. Tak to ale být nemusí. Je úplně běžná situace, že chceme nějakou metodu podědit, ale použít jinak. (A ano tohle je přesně to místo, které by vás mělo začít zajímat po odskoku od nyní už známého slůvka base.) Může to být libovolná metoda včetně klidně včetně konstruktoru. Největší klasikou v tomhle směru je v C# metoda ToString:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Naleznete ji u jakéhokoliv objektu, takže u všeho. Proč? Její definice je obsažena ve třídě Object a z této třídy dědí doslova všechny další třídy. Všechny. Na počátku je vždy ona. Chová se ale metoda ToString stejně u objektu typu Int32 i u, řekněme objektu typu Button?</simpara>
+</listitem>
+<listitem>
+<simpara>Odpověď asi tušíte. Ne, chovají se jinak. Jak převést číslo na řetězec? Jednoduché. Ale tlačítko na řetězec? Uff, to už vypadá na netriviální problém. Logicky tedy dospějeme k tomu, že jak ve třídě Int32, tak Button, bude mít metoda ToString mít svou definici, ale ta bude v každé třídě jiná. Jiná i když obě dědí ze třídy Object. A zde nastupuje překrývání.</simpara>
+</listitem>
+</orderedlist>
+<note>
+<simpara>Kdy tedy překrývání použít? Vždy, když chceme použít nějaký název znovu v rámci hierarchie dědičnosti. A z dobrého důvodu. Používejme tuto možnost vždy, když víme co děláme, jinak se stane zbraní hromadného ničení. (Ale lze celkem úspěšně předpokládat, že taková raketa typu Trident bude programována spíše Adě než v C#.) Pohybujeme se tedy po dědičnosti, vertikálně. Horizontální pohyb by zde byl čím? Správně, přetěžováním.</simpara>
+</note>
+<section xml:id="_virtuální_a_abstraktní_metody">
+<title>Virtuální a abstraktní metody</title>
+<simpara>Máme tedy bázovou třídu, ze které dědíme. V té máme metodu, jejíž název chceme dále – ve třídě, která z ní bude dědit – použít. Tyto metody chceme nějak označit, dát najevo, že mohou (nebo musí) být ve třídě z bázové dědící předefinovány (nebo definovány). Použijeme pro to dvě klíčová slůvka a to virtual a abstract. Bavíme se pak o virtuální a abstraktní metodě. Povědomé? Přesně, už jsme se o tom bavili v kapitolce o abstraktních třídách a toto povídání na ni přesně navazuje.</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Virtuální metoda je metoda, u které dáváme najevo, že může, ale nemusí, být překryta. Dáváme, sami sobě, nebo jinému programátorovi, najevo, že ze scénářem, že překrytí takovéto metody se prostě počítá.</simpara>
+</listitem>
+<listitem>
+<simpara>Abstraktní metodu bychom už měli znát. Ta nejenom, že může. Ne, ta musí být definována. V bázové třídě je obsažen pouze popis, že má existovat metoda s určitým názvem a přebírat nějaké argumenty. Je deklarovaná. Její definice ale musí přijít až ve třídě, která z ní podědí.</simpara>
+</listitem>
+</orderedlist>
+<simpara>Asi vás napadnou dva možné scénáře:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Co když slůvko virtual neuvedu? Moderní kompilátory do bytecode (nebo přesněji do CIL) vám to pravděpodobně povolí a funkčnost bude opticky identická, nicméně nedělejme to. Je to příklad benevolence, který se nemusí vždy vyplatit.</simpara>
+</listitem>
+<listitem>
+<simpara>Co když metodu, která je uvedena jako abstraktní, nedefinuji? Tady to je prosté. Váš kód nepůjde zkompilovat. Hotovo. Chybové hlášení, které to popisuje, je ale velmi přesné. Nemusíte se bát. Uvidíte a opravíte.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="_logika_klíčových_slov_override_a_new">
+<title>Logika klíčových slov override a new</title>
+<simpara>Zatím jsme se pohybovali na úrovni definic (nebo deklarací) metod, které můžeme (nebo musíme) překrýt. Jak je to ale na druhé straně? U tříd, které z nich dědí? Stejně tak, jako dáváme najevo, že povolujeme překrytí metody, musíme dát najevo, že danou metodu překrýváme (nebo definujeme). I tady máme klíčová slova, nyní v podobě pojmů new a override. Jak na ně?</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Použijeme-li klíčové slovo override, říkáme, že metoda, kterou právě chceme napsat bude zachovávat logiku té, kterou překrýváme. Neměníme její smysl. Neměníme její návratový typ. ToString by vždy měl převádět něco na řetězec. Ne vždy to ale bude dělat tím jedním správným možným způsobem. Proto překrýváme. To dává smysl, že?</simpara>
+</listitem>
+<listitem>
+<simpara>A co když je to „nové“? Kdy použít new? To je vzácnější situace. Někdy můžeme chtít použít už existující název metody pro zcela novou věc. Ve zcela nové situaci. Pro metodu, která se liší od oné překrývané smyslem i návratovým typem. Představte si, že by metoda ToString vracela celé číslo, které by odpovídalo nějakému matematickému výpočtu. To by nedávalo smysl, že? Dobře si rozmyslete, jestli něco takového chcete udělat.</simpara>
+</listitem>
+</orderedlist>
+<screen>/* Demonstrace překrývání a přetěžování */
+
+using System;
+
+namespace NeskodnyCsharp
+{
+    class Clovek
+    {
+        public int Vyska;
+
+        /* Virtuální metoda, kterou je možné přerýt */
+        public virtual string VypisUdaje()
+        {
+            return Vyska.ToString ();
+        }
+    }
+
+    class Student : Clovek
+    {
+        public string Skola;
+
+        /* Metoda, která překrývá bázovou metodu 'VypisUdaje' */
+        public override string VypisUdaje ()
+        {
+            return String.Format ("{0} {1}", Vyska, Skola);
+        }
+
+        /* Metoda, která přetěžuje metodu 'VypisUdaje' - má jiný počet argumentů */
+        public override string VypisUdaje (bool vsechno)
+        {
+            if (vsechno)
+            {
+                return String.Format ("{0}, {1}", Vyska, Skola);
+            }
+            else
+            {
+                return Skola;
+            }
+        }
+    }
+}</screen>
+<simpara>A opět si rozebereme příklad. Pozorně se podívejte na komentáře, které jsou v něm obsažené. Překrývání nám obecně může ušetřit mnoho práce, může usnadnit a zpřehlednit náš kód už tím, že v něm budou použity komukoliv známé názvy metod, které budou dělat správně to, co se od nich běžně očekává. Ale ještě jednou zopakuji. Opatrně, používejte překrývání, když má smysl.</simpara>
+</section>
+</section>
+</section>
+<section xml:id="_iv_jak_se_pracuje_s_rozhraními">
+<title>IV. Jak se pracuje s rozhraními?</title>
+<section xml:id="_iv_i_význam_rozhraní">
+<title>IV.I. Význam rozhraní</title>
+<simpara>Aneb mikrokapitola na závěr. S pojmem rozhraní jsme se už setkali. Můžeme ho použít v obecném smyslu, tak jsme o něm mluvili. Objekt má nějaké rozhraní. Klasika. V programovacím jazyce C# však ale máme ještě další nástroj pro to, jak s rozhraními pracovat. Jakýsi předpis, který nám říká, že musíme v dané třídě implementovat konkrétní metody. Tento předpis se nazývá interface, čili do češtiny přeloženo: rozhraní. Jestli vám to připomíná pojetí abstraktních tříd je to zcela správná úvaha, nicméně rozhraní nejsou přesnou analogií. Proč?</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Vzpomeňte si, že v C# můžete dědit pouze a výhradně z jedné třídy. Tečka. Včetně abstraktních tříd. To je velmi omezující. Chtěli byste podědit z naší známé třídy <literal>Clovek</literal> a zároveň z abstraktní třídy <literal>Chovani</literal>? Smůla, jakkoliv by to mělo svou logiku.</simpara>
+</listitem>
+<listitem>
+<simpara>Rozhraní nicméně můžeme implementovat tolik, kolik chceme. Kdyby naše třída měla dědit ze třídy <literal>Clovek</literal> a implementovat rozhraní <literal>Chovani</literal>, šlo by to? Bez potíží. A klidně by mohla pokračovat implementováním dalších rozhraní. A u člověka si lze představit mnoho předpisů, které každý jednotlivec musí splnit, že?</simpara>
+</listitem>
+</orderedlist>
+<screen>/* Demonstrace použití rozhraní */
+
+using System;
+
+namespace NeskodnyCsharp
+{
+    interface Chovani
+    {
+        /* Sada metod, které musí být implementovány */
+        void Mluvit ();
+        void Myslet ();
+    }
+
+    class Clovek
+    {
+        public string Jmeno;
+    }
+
+    /**
+     * Třída 'Student' dědí ze třídy člověk a zároveň implementuje
+     * předepsané rozhraní 'Chovani'
+    */
+    class Student : Clovek, Chovani
+    {
+        /* Nezbytné definice předepsaných metod */
+        public void Mluvit()
+        {
+            Console.WriteLine (Jmeno + ": Mluvím!");
+        }
+
+        public void Myslet()
+        {
+            Console.WriteLine (Jmeno + ": Myslím!");
+        }
+    }
+}</screen>
+<simpara>Příklad výše nám tedy jasně ukazuje, o čem rozhraní jsou. Bylo nařízeno implementovat určitou sadu metod? Bylo. Podařilo se tyto metody implementovat? Podařilo. Pak gratuluji, dostali jste se k závěru našeho povídání.</simpara>
+</section>
+</section>
+<section xml:id="_v_závěr">
+<title>V. Závěr</title>
+<simpara>Snad (ne)škodný úvod do pojetí objektového programování v prostředí programovacího jazyka C# máte nyní za sebou. Ale to by neměl být konec. Zpochybňujte. Dohledávejte další zdroje. Hledejte změny. Porovnávejte se situací v jiných jazycích. Ne všechny programovací jazyky mají svůj objektový model založený na třídách (podívejte se na Javascript a jeho pojetí OOP přes prototypy), ne všechny jazyky mají rozhraní a zakazujíc vícenásobnou dědičnost (Python). Ne všechny jazyky znají modifikátory přístupu (opět je jich mnoho). A šlo by pokračovat.</simpara>
+<simpara>V době, kdy tento text čtete, už může být vývoj objektového programování (a zdaleka nejen toho) na místě, který byste vy a já nečekali. A proto Shrnu v jedné větě: Nebuďte statičtí.</simpara>
+</section>
+<section xml:id="_vi_zdroje">
+<title>VI. Zdroje</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+<simpara>&#169; Lukáš Kotek 2015, <link xlink:href="https://creativecommons.org/licenses/by-sa/3.0/cz/">CC-BY-SA</link></simpara>
+</section>
+</article>
