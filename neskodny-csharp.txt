@@ -1,4 +1,6 @@
 :icons: font
+:sectnums:
+
 
 = (Ne)škodný úvod do OOP v jazyce C#
 
@@ -8,8 +10,8 @@ TIP: Tento dokument nemá ambici v žádném slova smyslu suplovat technickou do
 
 <<<
 
-== I. Co je to objektově orientované programování?
-=== I.I. Proč použít objektové programování
+== Co je to objektově orientované programování?
+=== Proč použít objektové programování
 
 Objektově orientované programování (OOP) je o zcela jiném přístupu k programování, než který byl (a v mnoha případech z dobrého důvodu dosud je) používán. Jak jsme se dívali na prvotně na program dříve? Jako na sled po sobě jdoucích pokynů. Čili:
 
@@ -25,10 +27,10 @@ Pojďme se podívat na objektově orientované programování (je to dlouhý poj
 
 NOTE: Všimli jste si tajemného „ono“? To ono, tajemná věc, o které mluvíme se nazývá objekt.
 
-=== I.II. Něco teorie k základní terminologii
+=== Něco teorie k základní terminologii
 ==== Objekt
 
-Máte tady tedy tajemný pojem objekt. Vůbec není tajemný. Objekt je prvek, kterým se snažíme popsat něco z reálného světa. Co nás napadá? Vezměme těžkou klasiku. Člověka, ale ne ledajakého člověka, vezměme konkrétního člověka, spolužáka, kamaráda, např. Igora Nováka (budeme jeho služeb v průběhu textu využívat i dále). Co bychom o něm mohli říct? Třeba, že je nějak vysoký, umí nějaké věci, že když spadne ze schodů bude na to nějak reagovat.
+Máte tady tedy tajemný pojem objekt. Vůbec není tajemný. Objekt je prvek, kterým se snažíme popsat něco z reálného světa. Co nás napadá? Vezměme těžkou klasiku. Člověka, ale ne ledajakého člověka, vezměme *konkrétního člověka*, spolužáka, kamaráda, např. Igora Nováka (budeme jeho služeb v průběhu textu využívat i dále). Co bychom o něm mohli říct? Třeba, že je nějak vysoký, umí nějaké věci, že když spadne ze schodů bude na to nějak reagovat.
 
 Všimněte si toho hlavního:
 
@@ -39,14 +41,14 @@ Jeli-to jasné, pojďme se posunout o kousek dále, k zásadnímu pojmu třída.
 
 ==== Třída
 
-Už jsme si řekli, že Igor je objekt. Že Igor je jedinečný. Ale je tak jedinečný, že bychom ho nemohli k někomu připodobnit? Co o něm víme? Igor je také člověk. Jako já, jako vy. Vy i já máme mnoho společných vlastností. Všichni jsme nějak vysocí, všichni máme nějakou váhu, hodnotu cholesterolu, každý umíme mluvit, ale mluvíme všichni stejně? Rozhodně ne. Co z toho plyne:
+Už jsme si řekli, že *Igor je objekt*. Že Igor je jedinečný. Ale je tak jedinečný, že bychom ho nemohli k někomu připodobnit? Co o něm víme? Igor je také člověk. Jako já, jako vy. Vy i já máme mnoho společných vlastností. Všichni jsme nějak vysocí, všichni máme nějakou váhu, hodnotu cholesterolu, každý umíme mluvit, ale mluvíme všichni stejně? Rozhodně ne. Co z toho plyne:
 
 1. Existuje mnoho lidí. Jsou různí, ale mohou mít společné vlastnosti;
 2. Každý jsme vytvořený podle společného vzoru, každý máme DNA, ale nikdo stejnou.
 
 Všichni známe DNA, platí? Kdo ne, dohledá si na (něco)pedii. Představme si, že je to šablona, podle které jsou vytvářeni konkrétní lidé. Smícháním určitých genů vznikne určitý člověk. Ještě jednou: je mnoho lidí, ale Igor Novák je jen jeden. Všichni lidé jsou ale vytvořeni podle společného vzoru, podle společné šablony. Tím se dostáváme k jádru věci.
 
-Vzor? Šablona? Pojďme použít lepší termín: třída. Třída je papír, na kterém je napsáno, že každý člověk má být nějak vysoký, má mít nějaký věk, má mít nějaké schopnosti. Jakou výšku? Jaký věk? Jaké schopnosti? To třída netuší. Je to opravdu jen šablona. Jeto prázdný formulář. Má kolonky, ale ty kolonky nejsou vyplněné. Až když je vyplníme, vznikne konkrétní člověk. Vznikne náš Igor.
+Vzor? Šablona? Pojďme použít lepší termín: *třída*. Třída je papír, na kterém je napsáno, že každý člověk má být nějak vysoký, má mít nějaký věk, má mít nějaké schopnosti. Jakou výšku? Jaký věk? Jaké schopnosti? To třída netuší. Je to opravdu jen šablona. Jeto prázdný formulář. Má kolonky, ale ty kolonky nejsou vyplněné. Až když je vyplníme, vznikne konkrétní člověk. Vznikne náš Igor.
 
 Tohle je zásadní moment. Tvrdíme, že:
 
@@ -63,9 +65,9 @@ Tahle pasáž bude stručná. Už víme, kdo je to Igor. Už víme, co je to čl
 2. Mohou říkat, že člověk může nějak měnit svůj stav, že člověk nějak koná;
 3. Mohou říkat, že člověk může nějak reagovat na nějaké události.
 
-Pojďme krok za krokem. První případ nazýváme vlastností, či atributem (popisujeme, jaký – a pozor zase se jedná až o konkrétního jedince – člověk je). Igor má modré oči. Druhý případ nazýváme metodou (popisujeme jak se daný člověk projevuje). A zase každý člověk umí hubnout, ale pouze Igor umí hubnout o 5 kg za půl roku. A reakce na události? Představte si, že vás někdo udeří. Každý člověk na to bude reagovat, ale pouze Igor uteče rychlostí 20 km/h směrem na severovýchod za hlasitých výkřiků. Zde jsme u pojmu událost (specifický případ vlastnosti).
+Pojďme krok za krokem. První případ nazýváme *vlastností, či atributem* (popisujeme, jaký – a pozor zase se jedná až o konkrétního jedince – člověk je). Igor má modré oči. Druhý případ nazýváme metodou (popisujeme jak se daný člověk projevuje). A zase každý člověk umí hubnout, ale pouze Igor umí hubnout o 5 kg za půl roku. A reakce na události? Představte si, že vás někdo udeří. Každý člověk na to bude reagovat, ale pouze Igor uteče rychlostí 20 km/h směrem na severovýchod za hlasitých výkřiků. Zde jsme u pojmu událost (specifický případ vlastnosti).
 
-=== I.III. Dědičnost mezi třídami
+=== Dědičnost mezi třídami
 
 Dosud jsme byli na výrazně abstraktní rovině. Pojďme se tedy (mimo jiné) podívat, jak by se výše zmíněné záležitosti zapsaly v programovacím jazyce C#. Nejprve ale stručně k dědičnosti. Řekli jsem si, že Igor (objekt) je člověk (třída). Je jen jeden náš konkrétní Igor, ale je mnoho lidí. Co kdybychom je zúžili? Co kdybychom tvrdili, že Igor je zároveň něco jiného? Pojďme na to:
 
@@ -87,7 +89,7 @@ image::uml.jpg[]
 
 NOTE: Shrňme to. Student střední školy dědí (dědí ve smyslu přejímá stejné členy, čili vlastnosti a metody) od studenta obecného. A student obecný dědí od člověka. Od čeho by mohl dědit člověk? Třeba od savce (každý člověk je savec a má s nimi mnoho společného). S čím pak savec? Se zvířetem. S čím zvíře? S jakoukoliv živou formou. Vidíte? Jsme stále obecnější a obecnější. A proto: není jedna žitá forma (třída), není jedno zvíře (třída), není jeden člověk (zase třída!). Ale je pouze jeden Láďa Novák jakožto unikátní případ studenta.
 
-=== I.IV. Zapouzdření
+=== Zapouzdření
 
 Další tajemný pojem. Dotýká se ale vskutku prostých věcí. Zůstaňme u našeho Igora. Víme, jak je vysoký? Víme (nebo snadno zjistíme). Víme, jak se chová? Víme. Dovedeme zjistit jeho reakce na konkrétní situace? Vskutku, Pavlov by mohl povídat, že. Zatím jsme se bavili o tom, jak se nám Igor (objekt, pamatujeme?) jeví navenek. Jaký je ale Igor uvnitř? Zajímá nás to vůbec?
 
@@ -96,14 +98,15 @@ Na tomto místě se opět dostáváme k podstatě věci. Zajímat nás to může
 1. Co když chceme pouze spolupracovat s Igorem (stále objekt) na konkrétním úkolu? Pak nás zajímá, jaký to je pracant, jak se projevuje v rámci kolektivu, jak reaguje. Zajímá nás jeho rozhraní (ano, to je termín z objektového programování pro tento účel).
 2. Zajímá nás ale jaký je Igor uvnitř? Igor (objekt) je odvozen ze člověka (třída) a jako kterýkoliv jiný, je unikátní. Ale k tomu podstatnému. Zajímá nás to ale? K čemu vědět jak pracují jeho játra? Srdce? Jaký je jeho krevní tlak? 
 
-Opět jsme u podstaty věci. U objektového programování nás zajímá, jak se kdo (konkrétní objekt) chová a jaké má vlastnosti. Proč se tak chová a proč má vlastnosti je nám lhostejné. Co když ale sami vytváříme nějaký určitý (ha, ne objekt, ale jeho popis, čili co? Ano, třídu!) Pak musíme přesně určit, proč se co jak chová a jaké je to uvnitř. Jaké vlastnosti a schopnostmi má (třeba člověk, byli-li bychom schopni ho vytvořit, že) skryté uvnitř a jakými se má naopak projevovat navenek.
+Opět jsme u podstaty věci. U objektového programování nás zajímá, jak se kdo (konkrétní objekt) chová a jaké má vlastnosti. Proč se tak chová a proč má vlastnosti je nám lhostejné. Co když ale sami vytváříme nějaký určitý (ha, ne objekt, ale jeho popis, čili co? Ano, třídu!) Pak musíme přesně určit, proč se co jak chová a jaké je to uvnitř. Jaké vlastnosti a schopnostmi má (třeba člověk, byli-li bychom schopni ho vytvořit, že) skryté uvnitř a *kterými se má naopak projevovat navenek*.
 
 To je podstata zapouzdření. Každá třída má vlastnosti a metody (kolonky, vzpomínáte), které jsou  dostupné buď čistě uvnitř ní samotné (pak bychom je nazvali privátní, popř. `protected`), nebo jímž se na základě třídy vytvořený objekt projevuje navenek, čili o tom, jaké má rozhraní (to bychom se bavili o veřejných, pamatujeme?). Zdůrazněme to znovu, třída (třeba člověk) se navenek nijak projevovat nebude, ale Igor, jakožto instance této třídy (objekt), může být moc zajímavý (mít vlastnosti a metody).
+
 Jasné? Pojďme si to zkomplikovat :-)
 
-=== I.V. Co jsou to modifikátory přístupu?
+=== Co jsou to modifikátory přístupu?
 
-Co označujeme za členy třídy už víte. Zapouzdření znáte také. Každému členu třídy je možné nastavit určité modifikátor přístupu. Zamyslete se nad tím spojením. Modifikujeme přístup. Říkáme, kdo k členu dané třídy smí přistoupit a kdo ne. Běžně se s nimi setkáváte (v C# ani nemůžete jinak), už od  prvního otevření vývojového prostřední vidíte slova jako `public`, `private` a mnohá jiná. Nyní se podíváme na ty nejzákladnější ze základních (a zároveň i nejčastěji používaných).
+Co označujeme za členy třídy už víte. Zapouzdření znáte také. Každému členu třídy je možné nastavit určité modifikátor přístupu. Zamyslete se nad tím spojením. Modifikujeme přístup. Říkáme, *odkud ke členu dané třídy smí přistoupit* a odkud ne. Běžně se s nimi setkáváte (v C# ani nemůžete jinak), už od  prvního otevření vývojového prostřední vidíte slova jako `public`, `private` a mnohá jiná. Nyní se podíváme na ty nejzákladnější ze základních (a zároveň i nejčastěji používaných).
 
 1. K čemu slouží je to `private`? Použijete ho, když chcete docílit toho, aby dané člen byl dostupný pouze v rámci třídy a dost. Vytvoříte na základě třídy objekt? Ne, člen nebude dostupný navenek. Podědíte ze třídy? Opět smůla.
 2. Jak je to u `protected`? Stejně jako v předchozím případě s důležitým rozdílem. Člen bude dostupný ve všech třídách, které ze třídy, kde je umístěn váš člen, dědí. Bude dostupný i navenek? Stále ne, k tomu je třeba další z našeho výčtu.
@@ -136,20 +139,20 @@ namespace NeskodnyCsharp
 }
 ----
 
-Vždy, když nějaký prvek chcete použít, zamyslete se nad tím, zda ho aktuálně použít můžete. Není-li modifikátor přístupu určen, automaticky se použije `private`, čili nejpřísnější možná varianta. Pozor na to, je to odlišnost od mnoho jiných jazyků (jako třeba Java), kde mohou být jiné zvyklosti. 
+Vždy, když nějaký prvek chcete použít, zamyslete se nad tím, zda ho aktuálně použít můžete. Není-li modifikátor přístupu určen, automaticky se použije `private`, čili nejpřísnější možná varianta. Pozor na to, je to odlišnost od mnoha jiných jazyků (jako třeba Java), kde mohou být jiné zvyklosti. 
 
 NOTE: Pakliže váháte nad tím, který modifikátor přístupu u vámi vytvářeného členu použít, odpovězte si na otázku: Kde a kdo musí nezbytně tento prvek vidět? Snažte se nastavit tuto úroveň na spíše přísnou než naopak. Snáze opravíte chybu, když někomu (nebo něčemu) dáte oprávnění málo (věřte, on se ozve), než chybu, kdy oprávnění k přístupu byla příliš široká (ten údržbář asi opravdu neměl mít přístup k ovládání reaktoru). Prostě, buďte opatrní (neslyšíte to naposledy).
 
-== II. Jaké známe druhy tříd?
-=== II.I. Popis jednotlivých tříd
+== Jaké známe druhy tříd?
+=== Popis jednotlivých tříd
 
-S pojmem třída jsme se tedy už střetli. Vzor, šablona, popis. To jsou slova, která udržte v paměti. Budeme je potřebovat. Na řádcích o kousek výše jsme si popsali, jak se třída může chovat. Jednalo se o klasický případ, kdy na základě „vyplnění formuláře“ vytváříme konkrétní objekt. Takovou třídu si můžeme nazvat řekněme „klasickou“. Mnoho o ní ale zatím nevíme.
+S pojmem třída jsme se tedy už střetli. *Vzor, šablona, popis*. To jsou slova, která udržte v paměti. Budeme je potřebovat. Na řádcích o kousek výše jsme si popsali, jak se třída může chovat. Jednalo se o klasický případ, kdy na základě „vyplnění formuláře“ vytváříme konkrétní objekt. Takovou třídu si můžeme nazvat řekněme „klasickou“. Mnoho o ní ale zatím nevíme.
 
 ==== Klasická třída
 
-Obecná, obyčejná, prostě základ, ze kterého vycházíme. Stále rozvíjíme situaci popsanou výše. Pojďme se podívat na to, kde a jak danou třídu definovat, a jak se přiblížit její implementaci v programovacím jazyce C#. Jistě jste si všimli, že když založíme nový projekt, dojde k vytvoření minimálně jednoho souboru, ve kterém se vyskytuje jmenný prostor (namespace), uvnitř něhož je typicky vytvořena jedna třída. Co s tím?
+Obecná, obyčejná, prostě základ, ze kterého vycházíme. Stále rozvíjíme situaci popsanou výše. Pojďme se podívat na to, kde a jak danou třídu definovat, a jak se přiblížit její implementaci v programovacím jazyce C#. Jistě jste si všimli, že když založíme nový projekt, dojde k vytvoření minimálně jednoho souboru, ve kterém se vyskytuje jmenný prostor (`namespace`), uvnitř něhož je -- typicky -- definována jedna třída. Co s tím?
 
-Jmenný prostor je oblast, ve které na sebe jednotlivé třídy vidí. Když vytvoříme jmenný prostor `Maturita` a uvnitř něho třídy `Komise`, `Student` a `Zkousejici` mohou na sebe (bez dalšího) bez problémů vidět. Existovat vedle sebe a čekat než někdo vytvoří jejich instance, čili objekty. Na základně třídy `Maturita` např. objekt maturita2015, na základě třídy `Zkousejici` např. kotekDrsnyUcitel a podobně. Rozveďme si odpověď na otázku, kde třídy definovat:
+Jmenný prostor je oblast, ve které na sebe jednotlivé třídy vidí. Když vytvoříme jmenný prostor `Maturita` a uvnitř něho třídy `Komise`, `Student` a `Zkousejici` mohou na sebe (bez dalšího) bez problémů vidět. Existovat vedle sebe a čekat než někdo vytvoří jejich instance, čili objekty. Na základně třídy `Maturita` např. objekt maturita2015, na základě třídy `Zkousejici` např. ;kotekDrsnyUcitel; a podobně. Rozveďme si odpověď na otázku, kde třídy definovat:
 
 1. Nejčastější situace je, když máme jeden soubor, uvnitř kterého je definována právě jedna třída, která se nachází v rámci jednoho jmenného prostoru. Jsou programovací jazyky, které to ani jiným způsobem neumí a vyžadují právě striktní situaci jedna třída uvnitř jednoho prostoru (a má to svou logiku a smysl z hlediska přehlednosti).
 2. Druhá možnost je mít uvnitř jednoho souboru v jednom jmenném prostoru více tříd. Typicky je to vhodné v situaci, kdy chceme tyto jednotlivé třídy využít relativně jednoduchým primitivním způsobem. Naopak si představte, že byste měli dvě třídy v jediném souboru a chtěli je souběžně editovat. Vskutku, to není hezká představa skákat  neustále z řádku 353 na řádek 27, není-liž pravda? 
@@ -194,31 +197,31 @@ NOTE: Co si z toho odnést? Předně to, že není jedno správné řešení. Ne
 
 ==== Abstraktní třída
 
-Je třída, ze které nemůžete (a nechcete) vytvořit její instanci, nemůžete vytvořit objekt. Abstraktní třída je úplně neužitečná bez toho, aby z ní někdo (nějaká jiná třída) dědila. Představte si, že máme třídu Firma. V každé firmě budeme chtít počítat platy, třída firma by tedy měla mít logicky metodu (ano, přesně metodu, podívejme se o pár odstavců výše), která slouží k takovému výpočtu. Něco na způsob VypočtiMzdy (ano, tak by se mohla jmenovat). 
+Je třída, ze které nemůžete (a nechcete) vytvořit její instanci, *nemůžete vytvořit objekt*. Abstraktní třída je úplně neužitečná bez toho, aby z ní někdo (nějaká jiná třída) dědila. Představte si, že máme třídu `Firma`. V každé firmě budeme chtít počítat platy, třída `Firma` by tedy měla mít logicky metodu (ano, přesně metodu, podívejme se o pár odstavců výše), která slouží k takovému výpočtu. Něco na způsob VypočtiMzdy (ano, tak by se mohla jmenovat). 
 
-Položte si teď zásadní otázku: Víte, jak se budou počítat mzdy u každé jednotlivé firmy? Stejně? Sotva. Systém prémií, benefitů (vidíte, jak se to snažím brát optimisticky) bude v různých oblastech dost jiný. Takže pozor. Tvrdíme, že každá firma potřebuje nějak mzdy počítat, ale že těžko nalezneme nějaký jednotící model. A to je ono! O tom jsou abstraktní třídy. Nemůžeme vytvořit objekt na základě třídy Firma, ale můžeme pevně předepsat, že každá třída, která z ní dědí, mzdy počítat musí. Musí obsahovat metodu VypočtiMzdy. Předepišme to tedy. Kde? No právě v abstraktní třídě. Která to je? V tomto případě právě třída Firma. Shrňme to:
+Položte si teď zásadní otázku: Víte, jak se budou počítat mzdy u každé jednotlivé firmy? Stejně? Sotva. Systém prémií, benefitů (vidíte, jak se to snažím brát optimisticky) bude v různých oblastech dost jiný. Takže pozor. Tvrdíme, že každá firma potřebuje nějak mzdy počítat, ale že těžko nalezneme nějaký jednotící model. A to je ono! O tom jsou abstraktní třídy. Nemůžeme vytvořit objekt na základě třídy `Firma`, ale můžeme pevně předepsat, že každá třída, která z ní dědí, mzdy počítat musí. Musí obsahovat metodu VypočtiMzdy. Předepišme to tedy. Kde? No právě v abstraktní třídě. Která to je? V tomto případě právě třída `Firma`. Shrňme to:
 
-1. Abstraktní třída Firma bude obsahovat deklaraci (opět abstraktní) metody VypočtiMzdy. Pouze deklaraci (fakt, že má existovat), nikoliv definici (jak to má konkrétně počítat). Ještě jednou z této třídy nemůžeme vytvořit její instanci (objekt).
+1. Abstraktní třída `Firma` bude obsahovat deklaraci (opět abstraktní) metody VypočtiMzdy. Pouze deklaraci (fakt, že má existovat), nikoliv definici (jak to má konkrétně počítat). Ještě jednou z této třídy nemůžeme vytvořit její instanci (objekt).
 2. Třídy (teď již „obyčejné“), které mohou jmenovat např. `Automobilka` a Reklamní, které budou dědit z Firmy, pak budou muset každá obsahovat jinou definici metody VypočtiMzdy. Muset jako muset. Nebudou-li ji obsahovat, projekt nepůjde zkompilovat. Hotovo. Jak prosté, milý Watsone.
 
 Abstraktní třídy tedy nebyly právě intelektuální výzvou, pojďme na třídy statické :-)
 
 ==== Statická třída
 
-Slyšíte to v tom názvu? Statická třída. Neměnná třída. Hotová třída. Ani z této třídy nevytváříme objekty, a ani u této třídy to hlavně dělat nechceme. Měli jste někdy potřebu vypsat nějaká data do konzole v přesně definovaném formátu? Nebo vícenásobně použít nějakou funkci, kterou jste někde definovali? Tady jsme u toho. Opět si položte otázku: Má smysl, abyste definovali např. Metodu `VypisVeSloupcich` v deseti různých třídách? Asi řeknete ne, ale vyvstává tu logická námitka: Proč nemohu tuto metodu definovat ve třídě, ze které ostatní dědí?
+Slyšíte to v tom názvu? Statická třída. Neměnná třída. Hotová třída. Ani z této třídy *nevytváříme objekty*, a ani u této třídy to hlavně dělat nechceme. Měli jste někdy potřebu vypsat nějaká data do konzole v přesně definovaném formátu? Nebo vícenásobně použít nějakou funkci, kterou jste někde definovali? Tady jsme u toho. Opět si položte otázku: Má smysl, abyste definovali např. Metodu `VypisVeSloupcich` v deseti různých třídách? Asi řeknete ne, ale vyvstává tu logická námitka: Proč nemohu tuto metodu definovat ve třídě, ze které ostatní dědí?
 
-Toto je zásadní moment. Proč ne? Vždyť to má svou logiku. Uvědomme si následující. Pokud mezi sebou třídy dědí, znamená to, že mezi sebou mají vztah, logickou návaznost, propojenost vztahu od obecného ke konkrétnímu. Od třídy `Firma` může dědit třída `Automobilka`, od třídy `Automobilka` třída `CeskaAutomobilka`. V pořádku? Dobrá. Asi se shodneme, že každá z těchto tříd by mohla chtít umět vypsat nějaká data ve sloupcích. Stále v pořádku? OK. Znamená to ale, že třída Pračka dědící ze třídy Výrobek, žádná taková data k vypsání nemá? Aha, jsme u toho. Problém je následující:
+Toto je zásadní moment. Proč ne? Vždyť to má svou logiku. Uvědomme si následující. Pokud mezi sebou třídy dědí, znamená to, že mezi sebou mají vztah, logickou návaznost, propojenost vztahu od obecného ke konkrétnímu. Od třídy `Firma` může dědit třída `Automobilka`, od třídy `Automobilka` třída `CeskaAutomobilka`. V pořádku? Dobrá. Asi se shodneme, že každá z těchto tříd by mohla chtít umět vypsat nějaká data ve sloupcích. Stále v pořádku? OK. Znamená to ale, že třída Pračka dědící ze třídy `Vyrobek`, žádná taková data k vypsání nemá? Aha, jsme u toho. Problém je následující:
 
-1. Metoda `VypisVeSloupcich`, která by bylo obsažená ve třídách Firma a Výrobek, by dělala přesně to samé, přesně ve stejných situacích. Pracovala by přesně se stejnými vstupními daty. Byla by stejná. Opakování, opakování, opakování. To je přesně to co nechceme. Pamatujme na to, vždy, když narazíme na opakování, má nám to značit, že je něco špatně (a bohužel dost typicky a pravděpodobně na naší straně, to jest hoře programátorovo).
+1. Metoda `VypisVeSloupcich`, která by bylo obsažená ve třídách `Firma` a `Vyrobek`, by dělala přesně to samé, přesně ve stejných situacích. Pracovala by přesně se stejnými vstupními daty. Byla by stejná. Opakování, opakování, opakování. To je přesně to co nechceme. Pamatujme na to, vždy, když narazíme na opakování, má nám to značit, že je něco špatně (a bohužel dost typicky a pravděpodobně na naší straně, to jest hoře programátorovo).
 2. Správný postup je, jak název kapitolky napovídá, použít statickou třídu. Statická třída obsahuje výčet obecně použitelných metod nebo konstant, které chceme použít nezávisle na dalším. Naše statická třída by se tedy mohla jmenovat např. Výstup a metoda `VypisVeSloupcich` by jako argument mohla přebírat data jakékoliv jiné třídy, které by bylo potřeba v nějaký okamžik vypsat.
 
 NOTE: Statická třída je tedy o výčtu. O znovupoužitelnosti. O použitelnosti nezávisle na určitých datech. Vypadá tajemně, ale není. Znáte třídu Math? (měli byste), obsahuje metody pro výpočet sinu a konstanty jako je PI. Zkoušeli jste si někdy vytvořit instanci třídy Math? Asi tušíte kam směřuji, nešlo by to, je statická. Vztahuje se výpočet sinu a PI ke konkrétní oblasti? (Hmm, možná tak k matematice.) Ale jistě oba prvky použijeme v mnoha jiných situacích (konstrukce, analytická geometrie, energetika), až v desítkách či stovkách. Ne v jedné oblasti. Řekli jsme mnoho a vychází nám jasný to kandidát na statickou třídu.
 
-=== II.II. Klíčové pojmy k třídám
+=== Klíčové pojmy k třídám
 
 ==== Konstruktor
 
-Zatím jsme se drželi jen u těch nejzákladnějších termínů, pojďme se podívat na některé lehce specifičtější. Co je to konstruktor? Existuje na to extrémně stručná odpověď: metoda. Konstruktor je nicméně metoda, která je velmi specifická a to následujícími věcmi:
+Zatím jsme se drželi jen u těch nejzákladnějších termínů, pojďme se podívat na některé lehce specifičtější. Co je to konstruktor? Existuje na to extrémně stručná odpověď: metoda. Konstruktor je nicméně *metoda, která je velmi specifická* a to následujícími věcmi:
 
 1. Jmenuje se stejně jako třída, ve které je obsažena. Třída `Skola`, tedy bude obsahovat konstruktor s název `Skola()`.
 2. Nemá žádný návratový typ. U obyčejné metody musíme určit minimálně to, že metoda žádnou hodnotu nevrací (použijeme pak klíčové slovo void). U konstruktoru ne.
@@ -273,14 +276,14 @@ Protože programování není o uctívání svatých krav, můžeme tak oba př�
 
 Co znamenají? Je dost pravděpodobné, že jste se s nimi někde v rámci tvořeného zdrojového kódu setkali. Neskrývá se za nimi nic tajemného. Běžně v rámci nějaké třídy voláme její člen (pamatujeme, co člen znamená?). Nejčastěji ho voláme čistě jeho názvem (a v C# není zvlášť mnoho situací, které by nás nutili k tomu dělat to jinak). Vrátíme-li se k naší třídě `Clovek` vidíme, že jsme pracovali s členem (tady atributem) značícím výšku (nazvěme ho tedy `Vyska`). Můžeme ho v rámci třídy volat jednoduše, tedy pouze `Vyska`, jako by to byla jakákoliv jiná proměnná. Stejně tak dobře ale můžeme napsat `this.Vyska`. Proč je tomu tak?
 
-1. Slovo this nám ukazuje na konkrétní instanci třídy, tedy objekt. Můžeme mít mnoho různých instancí třídy `Clovek` (Igora, Honzu, kohokoliv) a každá z nich v sobě bude obsahovat vlastnost `Vyska`. Zápisem `this.Vyska` říkáme, že se vztahujeme právě k tomuto konkrétnímu člověku a atributem `Vyska` k hodnotě poplatné právě a jen tomuto člověku.
-2. Můžeme si to demonstrovat ještě jinak. Program, který není spuštěný, leží na pevném disku. V okamžiku, kdy ho spustíme, se stane procesem a získá svá specifika (přidělenou operační paměť, prioritu procesu) včetně konkrétních hodnot jeho atributů. V čem je klíčový fígl? Daný program můžete spustit vícekrát, jedná se tedy o více spuštěných instancí (a slůvko this se vztahuje ke každému jednotlivému z nich).
+1. Slovo `this` nám ukazuje na konkrétní instanci třídy, tedy objekt. Můžeme mít mnoho různých instancí třídy `Clovek` (Igora, Honzu, kohokoliv) a každá z nich v sobě bude obsahovat vlastnost `Vyska`. Zápisem `this.Vyska` říkáme, že se vztahujeme právě k tomuto konkrétnímu člověku a atributem `Vyska` k hodnotě poplatné právě a jen tomuto člověku.
+2. Můžeme si to demonstrovat ještě jinak. Program, který není spuštěný, leží na pevném disku. V okamžiku, kdy ho spustíme, se stane procesem a získá svá specifika (přidělenou operační paměť, prioritu procesu) včetně konkrétních hodnot jeho atributů. V čem je klíčový fígl? Daný program můžete spustit vícekrát, jedná se tedy o více spuštěných instancí (a slůvko `this` se vztahuje ke každému jednotlivému z nich).
 
-Jak byl popis slůvka this vyčerpávající, popis slůvka base bude o to kratší. Týká se dědičnosti. V C# máme vždycky maximálně jednu třídu, ze které dědíme, ne více. A pojem base se vztahuje právě k ní. Může nastat situace, kdy budeme potřebovat sáhnout na nějaký člen obsažený v takové třídě, přesně k tomu se base hodí. Ostatně to je přesně ten důvod, proč takové třídě říkáme bázová. Pojďme si možné situace shrnout a ilustrovat na příkladu:
+Jak byl popis slůvka `this` vyčerpávající, popis slůvka `base` bude o to kratší. Týká se dědičnosti. V C# máme vždycky maximálně jednu třídu, ze které dědíme, ne více. A pojem `base` se vztahuje právě k ní. Může nastat situace, kdy budeme potřebovat sáhnout na nějaký člen obsažený v takové třídě, přesně k tomu se `base` hodí. Ostatně to je přesně ten důvod, proč takové třídě říkáme bázová. Pojďme si možné situace shrnout a ilustrovat na příkladu:
 
 1. Třída `Student` dědí ze třídy `Clovek`. Uvěřitelný předpoklad. Budu-li si chtít sáhnout v rámci kódu ve třídě `Student` na atribut `Vyska` ve tvaru, ve kterém je obsažený ve třídě `Clovek`, napíšu poměrně přímočaře `base.Vyska`. Lehké, že?
 2. Vaše úplně logická otázka je, proč bychom něco takového vůbec měli dělat? Vždyť jsme obsah třídy `Clovek` podědili (ano, máme-li nastavené modifikátory přístupu minimálně na `protected`). Máte pravdu. Vtip je v tom, že ne vždy chceme v aktuální třídě použít poděděný člen přesně v takovém tvaru, ale chceme pracovat s oběma. 
-3. Zmatečné? Možná to tak na první pohled vypadá, ale všechno bude křišťálově čisté hned, jak se dostane k další kapitole o polymorfismu. Proteď si zapamatujme, že s base se asi nejčastěji v C# setkáme, když chceme přebrat ze třídy, ze které dědíme konstruktor a třeba ho mírně doplnit a rozšířit. Tajemné? Není, podívejte se na příklad níže.
+3. Zmatečné? Možná to tak na první pohled vypadá, ale všechno bude křišťálově čisté hned, jak se dostane k další kapitole o polymorfismu. Proteď si zapamatujme, že s `base` se asi nejčastěji v C# setkáme, když chceme přebrat ze třídy, ze které dědíme konstruktor a třeba ho mírně doplnit a rozšířit. Tajemné? Není, podívejte se na příklad níže.
 
 [source]
 ----
@@ -316,46 +319,46 @@ namespace NeskodnyCsharp
 }
 ----
 
-Vidíte, že na tom nic není. Námi nově vytvořený konstruktor (ve třídě `Student`) zbytečně neopakuje, co už dělá konstruktor v bázové (to slůvko si pamatujme) třídě `Clovek`. Přebírá argumenty poplatné bázovému konstruktoru a předává mu je, zatímco sám nově vyžaduje pouze nový argument `skola`, který předává do třídní proměnné `Skola`. Pouze a jen to, žádný zbytečný kód navíc. (A co si budeme říkat, pouze a jedině tam má smysl. Chodí snad každý člověk do školy?)
+Vidíte, že na tom nic není. Námi nově vytvořený konstruktor (ve třídě `Student`) zbytečně neopakuje, co už dělá konstruktor v bázové (to slůvko si pamatujme) třídě `Clovek`. Přebírá argumenty poplatné bázovému konstruktoru a předává mu je, zatímco sám nově vyžaduje pouze nový argument `skola`, který předává do třídní proměnné `Skola`. Pouze a jen to, žádný zbytečný kód navíc. (A co si budeme říkat, pouze a jedině tam má smysl. Chodí snad každý člověk stále do školy?)
 
-== III. K čemu slouží a co je to polymorfismus?
-=== III.I. Proč přetěžovat metody
+== K čemu slouží a co je to polymorfismus?
+=== Proč přetěžovat metody
 
-Protože chceme pro metody používat hezké názvy. A spolu s tím – protože nechceme používat mnoho podobných (a lehce zaměnitelných) názvů. To je podstatou. Z čeho ale vyplývá taková potřeba? Můžeme chtít mít v našem programu metody, které dělají principiálně totéž, ale přebírají různý počet argumentů. Jak by to tedy mohlo vypadat? Pojďme přijít na nějaký příklad.
+Protože chceme pro metody používat hezké a dobře *zapamatovatelné názvy*. A spolu s tím – protože naopak nechceme používat mnoho podobných (a lehce zaměnitelných) názvů. To je podstatou. Z čeho ale vyplývá taková potřeba? Můžeme chtít mít v našem programu metody, které dělají principiálně totéž, ale přebírají různý počet argumentů. Jak by to tedy mohlo vypadat? Pojďme přijít na nějaký příklad.
 
 1. Metoda, která vypisuje počet sekund na základě vstupních dat, by se mohla nazývat, řekněme `VypisSekundy`. Co by taková metoda mohla přebírat na vstupu jako argument? Dny? Hodiny? Minuty? Dny a hodiny? Dny, hodiny a minuty? 
 2. Pro každou z těchto situací bycho dovedli vymyslet hezký název. Něco a la `VypisSekundyNaZakladeHodin`, `VypisSekundyNaZakladeHodinMinut`. Už teď si je nepamatujete, že? Přitom původní název `VypisSekundy` je zapamatovatelný dokonale. A tady nastupuje přetěžování, my tento název vícenásobně použít opravdu můžeme.
-3. Pozor, přetěžování není všespásné. Použijeme ho, když máme různý počet argumentů, nebo když máme argumenty jiného typu. Kdybychom chtěli přetížit název metody `VypisSekundy` a na vstupu předávat jako jeden argument v prvním případě počet minut (jako celé číslo), ve druhém pak počet hodin (zase jako celé číslo), máme smůlu. 
+3. Pozor, *přetěžování není všespásné*. Použijeme ho, když máme různý počet argumentů, nebo když máme argumenty jiného typu. Kdybychom chtěli přetížit název metody `VypisSekundy` a na vstupu předávat jako jeden argument v prvním případě počet minut (jako celé číslo), ve druhém pak počet hodin (zase jako celé číslo), máme smůlu. 
 
-Chtěl jsem napsat dlouhý vysvětlující odstavec, ale není kód výše jasný? Máme hezké zapamatovatelné názvy metod? Máme. Mají metody různý počet argumentů? Opět ano. Takže jsme právě viděli podstatu přetěžování. A o tom to je.
+Chtěl jsem napsat dlouhý vysvětlující odstavec, ale podívejte se o pár odstavců níže. Není tam uvedený kód jasný? Máme hezké zapamatovatelné názvy metod? Máme. Mají metody různý počet argumentů? Opět ano. Takže jsme právě viděli podstatu přetěžování. A o tom to je.
 
-=== III.II. Kdy použít překrývání
+=== Kdy použít překrývání
 
-Všimněte si, že doteď jsme se pohybovali pouze v rámci jedné třídy. Všechny přetížené metody tam byly obsaženy hezky pěkně pod sebou. Tak to ale být nemusí. Je úplně běžná situace, že chceme nějakou metodu podědit, ale použít jinak. (A ano tohle je přesně to místo, které by vás mělo začít zajímat po odskoku od nyní už známého slůvka base.) Může to být libovolná metoda včetně klidně včetně konstruktoru. Největší klasikou v tomhle směru je v C# metoda ToString:
+Všimněte si, že doteď jsme se pohybovali pouze v rámci jedné třídy. Všechny přetížené metody tam byly obsaženy hezky pěkně pod sebou. Tak to ale být nemusí. Je úplně běžná situace, že chceme nějakou metodu podědit, ale použít jinak. (A ano tohle je přesně to místo, které by vás mělo začít zajímat po odskoku od nyní už známého slůvka `base`.) Může to být libovolná metoda včetně klidně včetně konstruktoru. Největší klasikou v tomhle směru je v C# metoda `ToString`:
 
-1. Naleznete ji u jakéhokoliv objektu, takže u všeho. Proč? Její definice je obsažena ve třídě Object a z této třídy dědí doslova všechny další třídy. Všechny. Na počátku je vždy ona. Chová se ale metoda ToString stejně u objektu typu Int32 i u, řekněme objektu typu Button?
-2. Odpověď asi tušíte. Ne, chovají se jinak. Jak převést číslo na řetězec? Jednoduché. Ale tlačítko na řetězec? Uff, to už vypadá na netriviální problém. Logicky tedy dospějeme k tomu, že jak ve třídě Int32, tak Button, bude mít metoda ToString mít svou definici, ale ta bude v každé třídě jiná. Jiná i když obě dědí ze třídy Object. A zde nastupuje překrývání.
+1. Naleznete ji u jakéhokoliv objektu, takže u všeho. Proč? Její definice je obsažena ve třídě Object a z této třídy dědí doslova všechny další třídy. Všechny. Na počátku je vždy ona. Chová se ale metoda `ToString` stejně u objektu typu `Int32` i u, řekněme objektu typu `Button`?
+2. Odpověď asi tušíte. Ne, chovají se jinak. Jak převést číslo na řetězec? Jednoduché. Ale tlačítko na řetězec? Uff, to už vypadá na netriviální problém. Logicky tedy dospějeme k tomu, že jak ve třídě `Int32`, tak `Button`, bude mít metoda `ToString` mít svou definici, ale ta bude v každé třídě jiná. Jiná i když obě dědí ze třídy Object. A zde nastupuje překrývání.
 
 NOTE: Kdy tedy překrývání použít? Vždy, když chceme použít nějaký název znovu v rámci hierarchie dědičnosti. A z dobrého důvodu. Používejme tuto možnost vždy, když víme co děláme, jinak se stane zbraní hromadného ničení. (Ale lze celkem úspěšně předpokládat, že taková raketa typu Trident bude programována spíše Adě než v C#.) Pohybujeme se tedy po dědičnosti, vertikálně. Horizontální pohyb by zde byl čím? Správně, přetěžováním.
 
 ==== Virtuální a abstraktní metody
 
-Máme tedy bázovou třídu, ze které dědíme. V té máme metodu, jejíž název chceme dále – ve třídě, která z ní bude dědit – použít. Tyto metody chceme nějak označit, dát najevo, že mohou (nebo musí) být ve třídě z bázové dědící předefinovány (nebo definovány). Použijeme pro to dvě klíčová slůvka a to virtual a abstract. Bavíme se pak o virtuální a abstraktní metodě. Povědomé? Přesně, už jsme se o tom bavili v kapitolce o abstraktních třídách a toto povídání na ni přesně navazuje.
+Máme tedy bázovou třídu, ze které dědíme. V té máme metodu, jejíž název chceme dále – ve třídě, která z ní bude dědit – použít. Tyto metody chceme nějak označit, dát najevo, že mohou (nebo musí) být ve třídě z bázové dědící předefinovány (nebo definovány). Použijeme pro to dvě klíčová slůvka a to `virtual` a `abstract`. Bavíme se pak o virtuální a abstraktní metodě. Povědomé? Přesně, už jsme se o tom bavili v kapitolce o abstraktních třídách a toto povídání na ni přesně navazuje.
 
-1. Virtuální metoda je metoda, u které dáváme najevo, že může, ale nemusí, být překryta. Dáváme, sami sobě, nebo jinému programátorovi, najevo, že ze scénářem, že překrytí takovéto metody se prostě počítá.
-2. Abstraktní metodu bychom už měli znát. Ta nejenom, že může. Ne, ta musí být definována. V bázové třídě je obsažen pouze popis, že má existovat metoda s určitým názvem a přebírat nějaké argumenty. Je deklarovaná. Její definice ale musí přijít až ve třídě, která z ní podědí.
+1. *Virtuální metoda* je metoda, u které dáváme najevo, že může, ale nemusí, být překryta. Dáváme, sami sobě, nebo jinému programátorovi, najevo, že ze scénářem, že překrytí takovéto metody se prostě počítá.
+2. *Abstraktní metodu* bychom už měli znát. Ta nejenom, že může. Ne, ta musí být definována. V bázové třídě je obsažen pouze popis, že má existovat metoda s určitým názvem a přebírat nějaké argumenty. Je deklarovaná. Její definice ale musí přijít až ve třídě, která z ní podědí.
 
 Asi vás napadnou dva možné scénáře:
 
-1. Co když slůvko virtual neuvedu? Moderní kompilátory do bytecode (nebo přesněji do CIL) vám to pravděpodobně povolí a funkčnost bude opticky identická, nicméně nedělejme to. Je to příklad benevolence, který se nemusí vždy vyplatit.
+1. Co když slůvko `virtual` neuvedu? Moderní kompilátory do bytecode (nebo přesněji do CIL) vám to pravděpodobně povolí a funkčnost bude opticky identická, nicméně nedělejme to. Je to příklad benevolence, který se nemusí vždy vyplatit.
 2. Co když metodu, která je uvedena jako abstraktní, nedefinuji? Tady to je prosté. Váš kód nepůjde zkompilovat. Hotovo. Chybové hlášení, které to popisuje, je ale velmi přesné. Nemusíte se bát. Uvidíte a opravíte.
 
 ==== Logika klíčových slov override a new
 
-Zatím jsme se pohybovali na úrovni definic (nebo deklarací) metod, které můžeme (nebo musíme) překrýt. Jak je to ale na druhé straně? U tříd, které z nich dědí? Stejně tak, jako dáváme najevo, že povolujeme překrytí metody, musíme dát najevo, že danou metodu překrýváme (nebo definujeme). I tady máme klíčová slova, nyní v podobě pojmů new a override. Jak na ně?
+Zatím jsme se pohybovali na úrovni definic (nebo deklarací) metod, které můžeme (nebo musíme) překrýt. Jak je to ale na druhé straně? U tříd, které z nich dědí? Stejně tak, jako dáváme najevo, že povolujeme překrytí metody, musíme dát najevo, že danou metodu překrýváme (nebo definujeme). I tady máme klíčová slova, nyní v podobě pojmů `new` a `override`. Jak na ně?
 
-1. Použijeme-li klíčové slovo override, říkáme, že metoda, kterou právě chceme napsat bude zachovávat logiku té, kterou překrýváme. Neměníme její smysl. Neměníme její návratový typ. ToString by vždy měl převádět něco na řetězec. Ne vždy to ale bude dělat tím jedním správným možným způsobem. Proto překrýváme. To dává smysl, že?
-2. A co když je to „nové“? Kdy použít new? To je vzácnější situace. Někdy můžeme chtít použít už existující název metody pro zcela novou věc. Ve zcela nové situaci. Pro metodu, která se liší od oné překrývané smyslem i návratovým typem. Představte si, že by metoda ToString vracela celé číslo, které by odpovídalo nějakému matematickému výpočtu. To by nedávalo smysl, že? Dobře si rozmyslete, jestli něco takového chcete udělat.
+1. Použijeme-li klíčové slovo `override`, říkáme, že metoda, kterou právě chceme napsat bude zachovávat logiku té, kterou překrýváme. Neměníme *její smysl*. Neměníme její *návratový typ*. `ToString` by vždy měl převádět něco na řetězec. Ne vždy to ale bude dělat tím jedním správným možným způsobem. Proto překrýváme. To dává smysl, že?
+2. A co když je to „nové“? Kdy použít `new`? To je vzácnější situace. Někdy můžeme chtít použít už existující název metody pro zcela novou věc. Ve zcela nové situaci. Pro metodu, která se *liší od oné překrývané smyslem i návratovým typem*. Představte si, že by metoda `ToString` vracela celé číslo, které by odpovídalo nějakému matematickému výpočtu. To by nedávalo smysl, že? Dobře si rozmyslete, jestli něco takového chcete udělat.
 
 [source]
 ----
@@ -404,13 +407,13 @@ namespace NeskodnyCsharp
 
 A opět si rozebereme příklad. Pozorně se podívejte na komentáře, které jsou v něm obsažené. Překrývání nám obecně může ušetřit mnoho práce, může usnadnit a zpřehlednit náš kód už tím, že v něm budou použity komukoliv známé názvy metod, které budou dělat správně to, co se od nich běžně očekává. Ale ještě jednou zopakuji. Opatrně, používejte překrývání, když má smysl.
 
-== IV. Jak se pracuje s rozhraními?
-=== IV.I. Význam rozhraní
+== Jak se pracuje s rozhraními?
+=== Význam rozhraní
 
 Aneb mikrokapitola na závěr. S pojmem rozhraní jsme se už setkali. Můžeme ho použít v obecném smyslu, tak jsme o něm mluvili. Objekt má nějaké rozhraní. Klasika. V programovacím jazyce C# však ale máme ještě další nástroj pro to, jak s rozhraními pracovat. Jakýsi předpis, který nám říká, že musíme v dané třídě implementovat konkrétní metody. Tento předpis se nazývá interface, čili do češtiny přeloženo: rozhraní. Jestli vám to připomíná pojetí abstraktních tříd je to zcela správná úvaha, nicméně rozhraní nejsou přesnou analogií. Proč?
 
-1. Vzpomeňte si, že v C# můžete dědit pouze a výhradně z jedné třídy. Tečka. Včetně abstraktních tříd. To je velmi omezující. Chtěli byste podědit z naší známé třídy `Clovek` a zároveň z abstraktní třídy `Chovani`? Smůla, jakkoliv by to mělo svou logiku.
-2. Rozhraní nicméně můžeme implementovat tolik, kolik chceme. Kdyby naše třída měla dědit ze třídy `Clovek` a implementovat rozhraní `Chovani`, šlo by to? Bez potíží. A klidně by mohla pokračovat implementováním dalších rozhraní. A u člověka si lze představit mnoho předpisů, které každý jednotlivec musí splnit, že?
+1. Vzpomeňte si, že v C# můžete *dědit pouze a výhradně z jedné třídy*. Tečka. Včetně abstraktních tříd. To je velmi omezující. Chtěli byste podědit z naší známé třídy `Clovek` a zároveň z abstraktní třídy `Chovani`? Smůla, jakkoliv by to mělo svou logiku.
+2. Rozhraní nicméně můžeme *implementovat tolik, kolik chceme*. Kdyby naše třída měla dědit ze třídy `Clovek` a implementovat rozhraní `Chovani`, šlo by to? Bez potíží. A klidně by mohla pokračovat implementováním dalších rozhraní. A u člověka si lze představit mnoho předpisů, které každý jednotlivec musí splnit, že?
 
 [source]
 ----
@@ -454,13 +457,13 @@ namespace NeskodnyCsharp
 
 Příklad výše nám tedy jasně ukazuje, o čem rozhraní jsou. Bylo nařízeno implementovat určitou sadu metod? Bylo. Podařilo se tyto metody implementovat? Podařilo. Pak gratuluji, dostali jste se k závěru našeho povídání.
 
-== V. Závěr
+== Závěr
 
 Snad (ne)škodný úvod do pojetí objektového programování v prostředí programovacího jazyka C# máte nyní za sebou. Ale to by neměl být konec. Zpochybňujte. Dohledávejte další zdroje. Hledejte změny. Porovnávejte se situací v jiných jazycích. Ne všechny programovací jazyky mají svůj objektový model založený na třídách (podívejte se na Javascript a jeho pojetí OOP přes prototypy), ne všechny jazyky mají rozhraní a zakazujíc vícenásobnou dědičnost (Python). Ne všechny jazyky znají modifikátory přístupu (opět je jich mnoho). A šlo by pokračovat.
 
-V době, kdy tento text čtete, už může být vývoj objektového programování (a zdaleka nejen toho) na místě, který byste vy a já nečekali. A proto Shrnu v jedné větě: Nebuďte statičtí.
+V době, kdy tento text čtete, už může být vývoj objektového programování (a zdaleka nejen toho) na místě, který byste vy a já nečekali. A proto Shrnu v jedné větě: *Nebuďte statičtí*.
 
-== VI. Zdroje
+== Zdroje
 
 <<<
 
