@@ -39,8 +39,8 @@
 <section xml:id="_objekt">
 <title>Objekt</title>
 <simpara>Máte tady tedy tajemný pojem objekt. Vůbec není tajemný. Objekt je prvek, kterým se snažíme popsat něco z reálného světa. Co nás napadá? Vezměme těžkou klasiku. Člověka, ale ne ledajakého člověka, vezměme <emphasis role="strong">konkrétního člověka</emphasis>, spolužáka, kamaráda, např. Igora Nováka (budeme jeho služeb v průběhu textu využívat i dále). Co bychom o něm mohli říct? Třeba, že je nějak vysoký, umí nějaké věci, že když spadne ze schodů bude na to nějak reagovat.</simpara>
-<simpara>Všimněte si toho hlavního:</simpara>
 <orderedlist numeration="arabic">
+<title>Všimněte si toho hlavního:</title>
 <listitem>
 <simpara>Nás nezajímá jen tak ledajaký člověk (těch je spousta), nás zajímá Igor Novák s konkrétními vlastnostmi schopnosti a dovednostmi. Mohli bychom popsat obecného člověka s přesně definovanými vlastnostmi a schopnostmi? Sotva, každý je něčím specifický. Igor Novák je náš jeden konkrétní objekt.</simpara>
 </listitem>
@@ -63,8 +63,8 @@
 </orderedlist>
 <simpara>Všichni známe DNA, platí? Kdo ne, dohledá si na (něco)pedii. Představme si, že je to šablona, podle které jsou vytvářeni konkrétní lidé. Smícháním určitých genů vznikne určitý člověk. Ještě jednou: je mnoho lidí, ale Igor Novák je jen jeden. Všichni lidé jsou ale vytvořeni podle společného vzoru, podle společné šablony. Tím se dostáváme k jádru věci.</simpara>
 <simpara>Vzor? Šablona? Pojďme použít lepší termín: <emphasis role="strong">třída</emphasis>. Třída je papír, na kterém je napsáno, že každý člověk má být nějak vysoký, má mít nějaký věk, má mít nějaké schopnosti. Jakou výšku? Jaký věk? Jaké schopnosti? To třída netuší. Je to opravdu jen šablona. Jeto prázdný formulář. Má kolonky, ale ty kolonky nejsou vyplněné. Až když je vyplníme, vznikne konkrétní člověk. Vznikne náš Igor.</simpara>
-<simpara>Tohle je zásadní moment. Tvrdíme, že:</simpara>
 <orderedlist numeration="arabic">
+<title>Tohle je zásadní moment. Tvrdíme, že:</title>
 <listitem>
 <simpara>Igor je objekt (to už jsme tvrdili dříve);</simpara>
 </listitem>
@@ -78,8 +78,9 @@
 </section>
 <section xml:id="_Člen_třídy">
 <title>Člen třídy</title>
-<simpara>Tahle pasáž bude stručná. Už víme, kdo je to Igor. Už víme, co je to člověk. Člen třídy nám vypovídá o tom, o jakého člověka se jedná. Je-li člověk formulář, pak člen třídy je konkrétní položkou. Členové třídy, ale mohou být velice různí:</simpara>
+<simpara>Tahle pasáž bude stručná. Už víme, kdo je to Igor. Už víme, co je to člověk. Člen třídy nám vypovídá o tom, o jakého člověka se jedná. Je-li člověk formulář, pak člen třídy je konkrétní položkou.</simpara>
 <orderedlist numeration="arabic">
+<title>Členové třídy, ale mohou být velice různí:</title>
 <listitem>
 <simpara>Mohou říkat, že člověk má mít nějakou výšku, věk či barvu očí;</simpara>
 </listitem>
@@ -104,8 +105,8 @@
 <simpara>Igor Novák je student střední školy. Existuje jen jeden student střední školy? Ne. Student střední školy tedy bude opět třída. Studentů střední školy bude zase o něco mně než studentů obecně, ale pořád se nejedná o unikát.</simpara>
 </listitem>
 </orderedlist>
-<simpara>Tohle nám ale plodí mnoho, různě sofistikovaných, otázek:</simpara>
 <orderedlist numeration="arabic">
+<title>Tohle nám ale plodí mnoho, různě sofistikovaných, otázek:</title>
 <listitem>
 <simpara>Nemá student střední školy mnoho společného s jakýmkoliv studentem? (Vskutku ano.)</simpara>
 </listitem>
@@ -140,8 +141,8 @@
 <section xml:id="_zapouzdření">
 <title>Zapouzdření</title>
 <simpara>Další tajemný pojem. Dotýká se ale vskutku prostých věcí. Zůstaňme u našeho Igora. Víme, jak je vysoký? Víme (nebo snadno zjistíme). Víme, jak se chová? Víme. Dovedeme zjistit jeho reakce na konkrétní situace? Vskutku, Pavlov by mohl povídat, že. Zatím jsme se bavili o tom, jak se nám Igor (objekt, pamatujeme?) jeví navenek. Jaký je ale Igor uvnitř? Zajímá nás to vůbec?</simpara>
-<simpara>Na tomto místě se opět dostáváme k podstatě věci. Zajímat nás to může, ale nemusí:</simpara>
 <orderedlist numeration="arabic">
+<title>Na tomto místě se opět dostáváme k podstatě věci. Zajímat nás to může, ale nemusí:</title>
 <listitem>
 <simpara>Co když chceme pouze spolupracovat s Igorem (stále objekt) na konkrétním úkolu? Pak nás zajímá, jaký to je pracant, jak se projevuje v rámci kolektivu, jak reaguje. Zajímá nás jeho rozhraní (ano, to je termín z objektového programování pro tento účel).</simpara>
 </listitem>
@@ -204,8 +205,9 @@ namespace NeskodnyCsharp
 <section xml:id="_klasická_třída">
 <title>Klasická třída</title>
 <simpara>Obecná, obyčejná, prostě základ, ze kterého vycházíme. Stále rozvíjíme situaci popsanou výše. Pojďme se podívat na to, kde a jak danou třídu definovat, a jak se přiblížit její implementaci v programovacím jazyce C#. Jistě jste si všimli, že když založíme nový projekt, dojde k vytvoření minimálně jednoho souboru, ve kterém se vyskytuje jmenný prostor (<literal>namespace</literal>), uvnitř něhož je&#8201;&#8212;&#8201;typicky&#8201;&#8212;&#8201;definována jedna třída. Co s tím?</simpara>
-<simpara>Jmenný prostor je oblast, ve které na sebe jednotlivé třídy vidí. Když vytvoříme jmenný prostor <literal>Maturita</literal> a uvnitř něho třídy <literal>Komise</literal>, <literal>Student</literal> a <literal>Zkousejici</literal> mohou na sebe (bez dalšího) bez problémů vidět. Existovat vedle sebe a čekat než někdo vytvoří jejich instance, čili objekty. Na základně třídy <literal>Maturita</literal> např. objekt maturita2015, na základě třídy <literal>Zkousejici</literal> např. ;kotekDrsnyUcitel; a podobně. Rozveďme si odpověď na otázku, kde třídy definovat:</simpara>
+<simpara>Jmenný prostor je oblast, ve které na sebe jednotlivé třídy vidí. Když vytvoříme jmenný prostor <literal>Maturita</literal> a uvnitř něho třídy <literal>Komise</literal>, <literal>Student</literal> a <literal>Zkousejici</literal> mohou na sebe (bez dalšího) bez problémů vidět. Existovat vedle sebe a čekat než někdo vytvoří jejich instance, čili objekty. Na základně třídy <literal>Maturita</literal> např. objekt maturita2015, na základě třídy <literal>Zkousejici</literal> např. <literal>kotekDrsnyUcitel</literal> a podobně.</simpara>
 <orderedlist numeration="arabic">
+<title>Rozveďme si odpověď na otázku, kde třídy definovat:</title>
 <listitem>
 <simpara>Nejčastější situace je, když máme jeden soubor, uvnitř kterého je definována právě jedna třída, která se nachází v rámci jednoho jmenného prostoru. Jsou programovací jazyky, které to ani jiným způsobem neumí a vyžadují právě striktní situaci jedna třída uvnitř jednoho prostoru (a má to svou logiku a smysl z hlediska přehlednosti).</simpara>
 </listitem>
@@ -268,8 +270,9 @@ namespace NeskodnyCsharp
 <section xml:id="_statická_třída">
 <title>Statická třída</title>
 <simpara>Slyšíte to v tom názvu? Statická třída. Neměnná třída. Hotová třída. Ani z této třídy <emphasis role="strong">nevytváříme objekty</emphasis>, a ani u této třídy to hlavně dělat nechceme. Měli jste někdy potřebu vypsat nějaká data do konzole v přesně definovaném formátu? Nebo vícenásobně použít nějakou funkci, kterou jste někde definovali? Tady jsme u toho. Opět si položte otázku: Má smysl, abyste definovali např. Metodu <literal>VypisVeSloupcich</literal> v deseti různých třídách? Asi řeknete ne, ale vyvstává tu logická námitka: Proč nemohu tuto metodu definovat ve třídě, ze které ostatní dědí?</simpara>
-<simpara>Toto je zásadní moment. Proč ne? Vždyť to má svou logiku. Uvědomme si následující. Pokud mezi sebou třídy dědí, znamená to, že mezi sebou mají vztah, logickou návaznost, propojenost vztahu od obecného ke konkrétnímu. Od třídy <literal>Firma</literal> může dědit třída <literal>Automobilka</literal>, od třídy <literal>Automobilka</literal> třída <literal>CeskaAutomobilka</literal>. V pořádku? Dobrá. Asi se shodneme, že každá z těchto tříd by mohla chtít umět vypsat nějaká data ve sloupcích. Stále v pořádku? OK. Znamená to ale, že třída Pračka dědící ze třídy <literal>Vyrobek</literal>, žádná taková data k vypsání nemá? Aha, jsme u toho. Problém je následující:</simpara>
+<simpara>Toto je zásadní moment. Proč ne? Vždyť to má svou logiku. Uvědomme si následující. Pokud mezi sebou třídy dědí, znamená to, že mezi sebou mají vztah, logickou návaznost, propojenost vztahu od obecného ke konkrétnímu. Od třídy <literal>Firma</literal> může dědit třída <literal>Automobilka</literal>, od třídy <literal>Automobilka</literal> třída <literal>CeskaAutomobilka</literal>. V pořádku? Dobrá. Asi se shodneme, že každá z těchto tříd by mohla chtít umět vypsat nějaká data ve sloupcích. Stále v pořádku? OK. Znamená to ale, že třída Pračka dědící ze třídy <literal>Vyrobek</literal>, žádná taková data k vypsání nemá? Aha, jsme u toho.</simpara>
 <orderedlist numeration="arabic">
+<title>Problém je následující:</title>
 <listitem>
 <simpara>Metoda <literal>VypisVeSloupcich</literal>, která by bylo obsažená ve třídách <literal>Firma</literal> a <literal>Vyrobek</literal>, by dělala přesně to samé, přesně ve stejných situacích. Pracovala by přesně se stejnými vstupními daty. Byla by stejná. Opakování, opakování, opakování. To je přesně to co nechceme. Pamatujme na to, vždy, když narazíme na opakování, má nám to značit, že je něco špatně (a bohužel dost typicky a pravděpodobně na naší straně, to jest hoře programátorovo).</simpara>
 </listitem>
@@ -354,8 +357,9 @@ namespace NeskodnyCsharp
 <simpara>Můžeme si to demonstrovat ještě jinak. Program, který není spuštěný, leží na pevném disku. V okamžiku, kdy ho spustíme, se stane procesem a získá svá specifika (přidělenou operační paměť, prioritu procesu) včetně konkrétních hodnot jeho atributů. V čem je klíčový fígl? Daný program můžete spustit vícekrát, jedná se tedy o více spuštěných instancí (a slůvko <literal>this</literal> se vztahuje ke každému jednotlivému z nich).</simpara>
 </listitem>
 </orderedlist>
-<simpara>Jak byl popis slůvka <literal>this</literal> vyčerpávající, popis slůvka <literal>base</literal> bude o to kratší. Týká se dědičnosti. V C# máme vždycky maximálně jednu třídu, ze které dědíme, ne více. A pojem <literal>base</literal> se vztahuje právě k ní. Může nastat situace, kdy budeme potřebovat sáhnout na nějaký člen obsažený v takové třídě, přesně k tomu se <literal>base</literal> hodí. Ostatně to je přesně ten důvod, proč takové třídě říkáme bázová. Pojďme si možné situace shrnout a ilustrovat na příkladu:</simpara>
+<simpara>Jak byl popis slůvka <literal>this</literal> vyčerpávající, popis slůvka <literal>base</literal> bude o to kratší. Týká se dědičnosti. V C# máme vždycky maximálně jednu třídu, ze které dědíme, ne více. A pojem <literal>base</literal> se vztahuje právě k ní. Může nastat situace, kdy budeme potřebovat sáhnout na nějaký člen obsažený v takové třídě, přesně k tomu se <literal>base</literal> hodí. Ostatně to je přesně ten důvod, proč takové třídě říkáme bázová.</simpara>
 <orderedlist numeration="arabic">
+<title>Pojďme si možné situace shrnout a ilustrovat na příkladu:</title>
 <listitem>
 <simpara>Třída <literal>Student</literal> dědí ze třídy <literal>Clovek</literal>. Uvěřitelný předpoklad. Budu-li si chtít sáhnout v rámci kódu ve třídě <literal>Student</literal> na atribut <literal>Vyska</literal> ve tvaru, ve kterém je obsažený ve třídě <literal>Clovek</literal>, napíšu poměrně přímočaře <literal>base.Vyska</literal>. Lehké, že?</simpara>
 </listitem>
@@ -396,7 +400,7 @@ namespace NeskodnyCsharp
         }
     }
 }</screen>
-<simpara>Vidíte, že na tom nic není. Námi nově vytvořený konstruktor (ve třídě <literal>Student</literal>) zbytečně neopakuje, co už dělá konstruktor v bázové (to slůvko si pamatujme) třídě <literal>Clovek</literal>. Přebírá argumenty poplatné bázovému konstruktoru a předává mu je, zatímco sám nově vyžaduje pouze nový argument <literal>skola</literal>, který předává do třídní proměnné <literal>Skola</literal>. Pouze a jen to, žádný zbytečný kód navíc. (A co si budeme říkat, pouze a jedině tam má smysl. Chodí snad každý člověk stále do školy?)</simpara>
+<simpara>Vidíte, že na tom nic není. Námi nově vytvořený konstruktor (ve třídě <literal>Student</literal>) zbytečně <emphasis role="strong">neopakuje, co už dělá konstruktor v bázové třídě</emphasis> <literal>Clovek</literal> (to slůvko si pamatujme) . Přebírá argumenty poplatné bázovému konstruktoru a předává mu je, zatímco sám nově vyžaduje pouze nový argument <literal>skola</literal>, který předává do třídní proměnné <literal>Skola</literal>. Pouze a jen to, žádný zbytečný kód navíc. (A co si budeme říkat, pouze a jedině tam má smysl. Chodí snad každý člověk stále do školy?)</simpara>
 </section>
 </section>
 </section>
@@ -404,8 +408,9 @@ namespace NeskodnyCsharp
 <title>K čemu slouží a co je to polymorfismus?</title>
 <section xml:id="_proč_přetěžovat_metody">
 <title>Proč přetěžovat metody</title>
-<simpara>Protože chceme pro metody používat hezké a dobře <emphasis role="strong">zapamatovatelné názvy</emphasis>. A spolu s tím – protože naopak nechceme používat mnoho podobných (a lehce zaměnitelných) názvů. To je podstatou. Z čeho ale vyplývá taková potřeba? Můžeme chtít mít v našem programu metody, které dělají principiálně totéž, ale přebírají různý počet argumentů. Jak by to tedy mohlo vypadat? Pojďme přijít na nějaký příklad.</simpara>
+<simpara>Protože chceme pro metody používat hezké a dobře <emphasis role="strong">zapamatovatelné názvy</emphasis>. A spolu s tím – protože naopak nechceme používat mnoho podobných (a lehce zaměnitelných) názvů. To je podstatou. Z čeho ale vyplývá taková potřeba? Můžeme chtít mít v našem programu metody, které dělají principiálně totéž, ale přebírají různý počet argumentů. Jak by to tedy mohlo vypadat?</simpara>
 <orderedlist numeration="arabic">
+<title>Pojďme přijít na nějaký příklad:</title>
 <listitem>
 <simpara>Metoda, která vypisuje počet sekund na základě vstupních dat, by se mohla nazývat, řekněme <literal>VypisSekundy</literal>. Co by taková metoda mohla přebírat na vstupu jako argument? Dny? Hodiny? Minuty? Dny a hodiny? Dny, hodiny a minuty?</simpara>
 </listitem>
@@ -420,10 +425,11 @@ namespace NeskodnyCsharp
 </section>
 <section xml:id="_kdy_použít_překrývání">
 <title>Kdy použít překrývání</title>
-<simpara>Všimněte si, že doteď jsme se pohybovali pouze v rámci jedné třídy. Všechny přetížené metody tam byly obsaženy hezky pěkně pod sebou. Tak to ale být nemusí. Je úplně běžná situace, že chceme nějakou metodu podědit, ale použít jinak. (A ano tohle je přesně to místo, které by vás mělo začít zajímat po odskoku od nyní už známého slůvka <literal>base</literal>.) Může to být libovolná metoda včetně klidně včetně konstruktoru. Největší klasikou v tomhle směru je v C# metoda <literal>ToString</literal>:</simpara>
+<simpara>Všimněte si, že doteď jsme se pohybovali pouze v rámci jedné třídy. Všechny přetížené metody tam byly obsaženy hezky pěkně pod sebou. Tak to ale být nemusí. Je úplně běžná situace, že chceme nějakou metodu podědit, ale použít jinak. (A ano tohle je přesně to místo, které by vás mělo začít zajímat po odskoku od nyní už známého slůvka <literal>base</literal>.) Může to být libovolná metoda včetně klidně včetně konstruktoru.</simpara>
 <orderedlist numeration="arabic">
+<title>Klasikou v tomhle směru je v C# metoda na převod čehokoliv na řetězec:</title>
 <listitem>
-<simpara>Naleznete ji u jakéhokoliv objektu, takže u všeho. Proč? Její definice je obsažena ve třídě Object a z této třídy dědí doslova všechny další třídy. Všechny. Na počátku je vždy ona. Chová se ale metoda <literal>ToString</literal> stejně u objektu typu <literal>Int32</literal> i u, řekněme objektu typu <literal>Button</literal>?</simpara>
+<simpara>Aneb <literal>ToString</literal>. Naleznete ji u jakéhokoliv objektu, takže u všeho. Proč? Její definice je obsažena ve třídě Object a z této třídy dědí doslova všechny další třídy. Všechny. Na počátku je vždy ona. Chová se ale metoda <literal>ToString</literal> stejně u objektu typu <literal>Int32</literal> i u, řekněme objektu typu <literal>Button</literal>?</simpara>
 </listitem>
 <listitem>
 <simpara>Odpověď asi tušíte. Ne, chovají se jinak. Jak převést číslo na řetězec? Jednoduché. Ale tlačítko na řetězec? Uff, to už vypadá na netriviální problém. Logicky tedy dospějeme k tomu, že jak ve třídě <literal>Int32</literal>, tak <literal>Button</literal>, bude mít metoda <literal>ToString</literal> mít svou definici, ale ta bude v každé třídě jiná. Jiná i když obě dědí ze třídy Object. A zde nastupuje překrývání.</simpara>
@@ -443,8 +449,8 @@ namespace NeskodnyCsharp
 <simpara><emphasis role="strong">Abstraktní metodu</emphasis> bychom už měli znát. Ta nejenom, že může. Ne, ta musí být definována. V bázové třídě je obsažen pouze popis, že má existovat metoda s určitým názvem a přebírat nějaké argumenty. Je deklarovaná. Její definice ale musí přijít až ve třídě, která z ní podědí.</simpara>
 </listitem>
 </orderedlist>
-<simpara>Asi vás napadnou dva možné scénáře:</simpara>
 <orderedlist numeration="arabic">
+<title>Asi vás napadnou dva možné scénáře:</title>
 <listitem>
 <simpara>Co když slůvko <literal>virtual</literal> neuvedu? Moderní kompilátory do bytecode (nebo přesněji do CIL) vám to pravděpodobně povolí a funkčnost bude opticky identická, nicméně nedělejme to. Je to příklad benevolence, který se nemusí vždy vyplatit.</simpara>
 </listitem>
@@ -513,7 +519,7 @@ namespace NeskodnyCsharp
 <title>Jak se pracuje s rozhraními?</title>
 <section xml:id="_význam_rozhraní">
 <title>Význam rozhraní</title>
-<simpara>Aneb mikrokapitola na závěr. S pojmem rozhraní jsme se už setkali. Můžeme ho použít v obecném smyslu, tak jsme o něm mluvili. Objekt má nějaké rozhraní. Klasika. V programovacím jazyce C# však ale máme ještě další nástroj pro to, jak s rozhraními pracovat. Jakýsi předpis, který nám říká, že musíme v dané třídě implementovat konkrétní metody. Tento předpis se nazývá interface, čili do češtiny přeloženo: rozhraní. Jestli vám to připomíná pojetí abstraktních tříd je to zcela správná úvaha, nicméně rozhraní nejsou přesnou analogií. Proč?</simpara>
+<simpara>Aneb mikrokapitola na závěr. S pojmem rozhraní jsme se už setkali. Můžeme ho použít v obecném smyslu, tak jsme o něm mluvili. Objekt má nějaké rozhraní. Klasika. V programovacím jazyce C# však ale máme ještě další nástroj pro to, jak s rozhraními pracovat. Jakýsi předpis, který nám říká, že musíme v dané třídě implementovat konkrétní metody. Tento předpis se nazývá interface, čili do češtiny přeloženo: rozhraní. Jestli vám to připomíná pojetí abstraktních tříd je to zcela správná úvaha, nicméně rozhraní nejsou přesnou analogií. Proč tomu tak je?</simpara>
 <orderedlist numeration="arabic">
 <listitem>
 <simpara>Vzpomeňte si, že v C# můžete <emphasis role="strong">dědit pouze a výhradně z jedné třídy</emphasis>. Tečka. Včetně abstraktních tříd. To je velmi omezující. Chtěli byste podědit z naší známé třídy <literal>Clovek</literal> a zároveň z abstraktní třídy <literal>Chovani</literal>? Smůla, jakkoliv by to mělo svou logiku.</simpara>
