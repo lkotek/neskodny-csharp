@@ -4,7 +4,7 @@
 <article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>(Ne)škodný úvod do OOP v jazyce C#</title>
-<date>2015-11-01</date>
+<date>2015-11-08</date>
 </info>
 <simpara>Lukáš Kotek &lt;<link xlink:href="mailto:lukaskotek@gmail.com">lukaskotek@gmail.com</link>&gt;</simpara>
 <tip>
@@ -129,7 +129,7 @@
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="uml.jpg"/>
+<imagedata fileref="uml.png"/>
 </imageobject>
 <textobject><phrase>uml</phrase></textobject>
 </mediaobject>

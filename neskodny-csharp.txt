@@ -87,7 +87,7 @@ Student střední školy (třída) tedy bude mít mnoho společných vlastností
 2. Má student věk, výšku a váhu? Opět bezpochyby. Student to tedy dědí od člověka. Student  má navíc studijní průměr a předměty.
 3. Má student střední školy studijní průměr a předměty? Ano, opět ano. Každý student střední školy má tyto atributy. Student tedy dědí od obecného studenta. Má ale každý student maturitní zkoušku? Nebo studuje každý student na střední škole? Ne? Pak bychom museli náš model dále upravit.
 
-image::uml.jpg[]
+image::uml.png[]
 
 NOTE: Shrňme to. Student střední školy dědí (dědí ve smyslu přejímá stejné členy, čili vlastnosti a metody) od studenta obecného. A student obecný dědí od člověka. Od čeho by mohl dědit člověk? Třeba od savce (každý člověk je savec a má s nimi mnoho společného). S čím pak savec? Se zvířetem. S čím zvíře? S jakoukoliv živou formou. Vidíte? Jsme stále obecnější a obecnější. A proto: není jedna žitá forma (třída), není jedno zvíře (třída), není jeden člověk (zase třída!). Ale je pouze jeden Láďa Novák jakožto unikátní případ studenta.
 
