@@ -6,7 +6,7 @@
 
 Lukáš Kotek <lukaskotek@gmail.com>
 
-TIP: Tento dokument nemá ambici v žádném slova smyslu suplovat technickou dokumentaci, odborné publikace nebo učebnice, které se zabývají programováním a programovacím jazykem C#. Rovněž není jeho cílem poskytovat dokonale exaktní formulace a definice pojmů ze zmíněné oblasti. Naopak cílí na uživatele (a zde konkrétně na studenty středních škol), kteří do objektového programování zatím pouze jemně vplouvají a potřebují proto nenásilnou formou osvětlit základní pojmy a principy, které s objektovým programování souvisí. Velmi, prosím nazírejte na něj s vědomím výše zmíněného. Toto není a nemá být MSDN.
+TIP: Tento dokument nemá ambici v žádném slova smyslu suplovat technickou dokumentaci, odborné publikace nebo učebnice, které se zabývají programováním a programovacím jazykem C#. Rovněž není jeho cílem poskytovat dokonale exaktní formulace a definice pojmů ze zmíněné oblasti. Naopak cílí na uživatele (a zde konkrétně na studenty středních škol), kteří do objektového programování zatím pouze jemně vplouvají a potřebují proto nenásilnou formou osvětlit základní pojmy a principy, které s objektovým programování souvisí. Prosím nazírejte na něj s vědomím výše zmíněného.
 
 <<<
 
@@ -114,7 +114,6 @@ Co označujeme za členy třídy už víte. Zapouzdření znáte také. Každém
 2. Jak je to u `protected`? Stejně jako v předchozím případě s důležitým rozdílem. Člen bude dostupný ve všech třídách, které ze třídy, kde je umístěn váš člen, dědí. Bude dostupný i navenek? Stále ne, k tomu je třeba další z našeho výčtu.
 3. Aneb modifikátor přístupu `public`. Je samopopisný. Je veřejný. Takovýto člen bude poděděn a zároveň bude vidět i navenek na základě třídy vytvořeného objetu. Ano, bude tvořit jeho rozhraní. Přesně v duchu kapitolek o pár řádků výše.
 
-[source]
 ----
 /* Demonstrace modifikátorů přístupu */
 
@@ -162,7 +161,6 @@ Jmenný prostor je oblast, ve které na sebe jednotlivé třídy vidí. Když vy
 2. Druhá možnost je mít uvnitř jednoho souboru v jednom jmenném prostoru více tříd. Typicky je to vhodné v situaci, kdy chceme tyto jednotlivé třídy využít relativně jednoduchým primitivním způsobem. Naopak si představte, že byste měli dvě třídy v jediném souboru a chtěli je souběžně editovat. Vskutku, to není hezká představa skákat  neustále z řádku 353 na řádek 27, není-liž pravda? 
 3. Pak je tu situace třetí. Můžeme mít dva soubory sdílející jeden a ten stejný jmenný prostor, ve kterých je obsažena právě jedna (ano jedna jediná) třída. Bavíme se pak, poměrně logicky, o tzv. částečných -- partial -- třídách. I tato situace může mít spoje opodstatnění. Poměrně běžný je případ, kdy v jedné partial třídě je generovaný kód (pokud jste někdy pracovali, a vy jste pracovali, ve Windows Forms, znáte to dobře) a ve druhé kód, kterým pak ručně rozšiřujeme kód ze souboru prvního. Důležité je si uvědomit, že pouze dohromady je vytvořena jedna celistvá třída s jedním názvem.
 
-[source]
 ----
 /* Demonstrace částečných 'partial' tříd */
 
@@ -238,7 +236,6 @@ K čemu je nám v praxi konstruktor dobrý? Znovu se vraťme k tomu, k čemu je 
 1. Můžeme postupně přistoupit k veřejně přístupným (tedy `public`) vlastnostem objektu (tvoří rozhraní tohoto objektu, pamatujeme?) a postupně určit, že `ssps` má takovéhoto ředitele, takovéto studenty apod. To jest cesta první.
 2. Nebo můžeme tyto údaje předat přímo konstruktoru jako argumenty. V okamžiku, kdy někdo vytváří objekt na základě třídy škola, je tímto donucen, aby alespoň minimální množství argumentů předal.
 
-[source]
 ----
 /* Jak lze použít konstruktor */
 
@@ -293,7 +290,6 @@ Jak byl popis slůvka `this` vyčerpávající, popis slůvka `base` bude o to k
 2. Vaše úplně logická otázka je, proč bychom něco takového vůbec měli dělat? Vždyť jsme obsah třídy `Clovek` podědili (ano, máme-li nastavené modifikátory přístupu minimálně na `protected`). Máte pravdu. Vtip je v tom, že ne vždy chceme v aktuální třídě použít poděděný člen přesně v takovém tvaru, ale chceme pracovat s oběma. 
 3. Zmatečné? Možná to tak na první pohled vypadá, ale všechno bude křišťálově čisté hned, jak se dostane k další kapitole o polymorfismu. Proteď si zapamatujme, že s `base` se asi nejčastěji v C# setkáme, když chceme přebrat ze třídy, ze které dědíme konstruktor a třeba ho mírně doplnit a rozšířit. Tajemné? Není, podívejte se na příklad níže.
 
-[source]
 ----
 /* Jak prakticky využít 'base' a 'this' */
 
@@ -372,7 +368,6 @@ Zatím jsme se pohybovali na úrovni definic (nebo deklarací) metod, které mů
 1. Použijeme-li klíčové slovo `override`, říkáme, že metoda, kterou právě chceme napsat bude zachovávat logiku té, kterou překrýváme. Neměníme *její smysl*. Neměníme její *návratový typ*. `ToString` by vždy měl převádět něco na řetězec. Ne vždy to ale bude dělat tím jedním správným možným způsobem. Proto překrýváme. To dává smysl, že?
 2. A co když je to „nové“? Kdy použít `new`? To je vzácnější situace. Někdy můžeme chtít použít už existující název metody pro zcela novou věc. Ve zcela nové situaci. Pro metodu, která se *liší od oné překrývané smyslem i návratovým typem*. Představte si, že by metoda `ToString` vracela celé číslo, které by odpovídalo nějakému matematickému výpočtu. To by nedávalo smysl, že? Dobře si rozmyslete, jestli něco takového chcete udělat.
 
-[source]
 ----
 /* Demonstrace překrývání a přetěžování */
 
@@ -427,7 +422,6 @@ Aneb mikrokapitola na závěr. S pojmem rozhraní jsme se už setkali. Můžeme 
 1. Vzpomeňte si, že v C# můžete *dědit pouze a výhradně z jedné třídy*. Tečka. Včetně abstraktních tříd. To je velmi omezující. Chtěli byste podědit z naší známé třídy `Clovek` a zároveň z abstraktní třídy `Chovani`? Smůla, jakkoliv by to mělo svou logiku.
 2. Rozhraní nicméně můžeme *implementovat tolik, kolik chceme*. Kdyby naše třída měla dědit ze třídy `Clovek` a implementovat rozhraní `Chovani`, šlo by to? Bez potíží. A klidně by mohla pokračovat implementováním dalších rozhraní. A u člověka si lze představit mnoho předpisů, které každý jednotlivec musí splnit, že?
 
-[source]
 ----
 /* Demonstrace použití rozhraní */
 
@@ -479,4 +473,4 @@ V době, kdy tento text čtete, už může být vývoj objektového programován
 
 <<<
 
-(C) Lukáš Kotek 2015, link:https://creativecommons.org/licenses/by-sa/3.0/cz/[CC-BY-SA]
+(C) Lukáš Kotek 2015, link:https://creativecommons.org/licenses/by-sa/4.0/[CC-BY-SA 4.0]
