@@ -1,6 +1,10 @@
+:doctype: book
+:source-highlighter: coderay
+:listing-caption: Listing
+:pdf-page-size: A4
+
 :icons: font
 :sectnums:
-
 
 = (Ne)škodný úvod do OOP v jazyce C#
 
@@ -13,7 +17,7 @@ TIP: Tento dokument nemá ambici v žádném slova smyslu suplovat technickou do
 == Co je to objektově orientované programování?
 === Proč použít objektové programování
 
-Objektově orientované programování (OOP) je o zcela jiném přístupu k programování, než který byl (a v mnoha případech z dobrého důvodu dosud je) používán. Jak jsme se dívali na prvotně na program dříve? Jako na sled po sobě jdoucích pokynů. Čili:
+Objektově orientované programování (OOP) je o zcela *jiném přístupu k programování*, než který byl (a v mnoha případech z dobrého důvodu dosud je) používán. Jak jsme se dívali na prvotně na program dříve? Jako na sled po sobě jdoucích pokynů. Čili:
 
 1. Krok první: udělej to (třeba načti hodnotu do proměnné);
 2. Krok druhý: udělej ono (umocni prve načtenou proměnnou na druhou);
@@ -21,9 +25,9 @@ Objektově orientované programování (OOP) je o zcela jiném přístupu k prog
 
 A podobně bychom mohli pokračovat, je to zjevné?
 
-Algoritmus jsme popsali vývojovým diagramem, který pro nás byl přesným návodem co kdy a jak udělat. Program pak pro nás byl strukturovaným přepisem tohoto návodu do konkrétního programovacího jazyka (s jeho příkazy a specifickou syntaxí).
+Algoritmus jsme popsali vývojovým diagramem, který pro nás byl přesným návodem pro to co kdy a jak udělat. Program pak pro nás byl *strukturovaným přepisem tohoto návodu* do konkrétního programovacího jazyka (s jeho příkazy a specifickou syntaxí).
 
-Pojďme se podívat na objektově orientované programování (je to dlouhý pojem, pojďme si vystačit se zkratkou OOP, platí?). Předně, OOP vůbec neříká, že to, co je v prvním odstavci není pravda. Algoritmus bude vždy posloupností kroků. OOP říká, že se mění náš pohled na program jako takový. Hlavní pro nás už není postup řešení (jak to jde za sebou), ale to s čím vlastně pracujeme (a o co se vlastně jedná, z čeho se to skládá, jak se to chová, jak to popíšeme?).
+Pojďme se podívat na objektově orientované programování (je to dlouhý pojem, pojďme si vystačit se zkratkou OOP, platí?). Předně, OOP vůbec neříká, že to, co je v prvním odstavci není pravda. Algoritmus bude vždy posloupností kroků. OOP říká, že se mění náš pohled na program jako takový. Hlavní pro nás už není postup řešení (jak to jde za sebou), ale *to s čím vlastně pracujeme* (a o co se vlastně jedná, z čeho se to skládá, jak se to chová, jak to popíšeme?).
 
 NOTE: Všimli jste si tajemného „ono“? To ono, tajemná věc, o které mluvíme se nazývá objekt.
 
@@ -114,6 +118,7 @@ Co označujeme za členy třídy už víte. Zapouzdření znáte také. Každém
 2. Jak je to u `protected`? Stejně jako v předchozím případě s důležitým rozdílem. Člen bude dostupný ve všech třídách, které ze třídy, kde je umístěn váš člen, dědí. Bude dostupný i navenek? Stále ne, k tomu je třeba další z našeho výčtu.
 3. Aneb modifikátor přístupu `public`. Je samopopisný. Je veřejný. Takovýto člen bude poděděn a zároveň bude vidět i navenek na základě třídy vytvořeného objetu. Ano, bude tvořit jeho rozhraní. Přesně v duchu kapitolek o pár řádků výše.
 
+[source]
 ----
 /* Demonstrace modifikátorů přístupu */
 
@@ -158,7 +163,7 @@ Jmenný prostor je oblast, ve které na sebe jednotlivé třídy vidí. Když vy
 .Rozveďme si odpověď na otázku, kde třídy definovat:
 
 1. Nejčastější situace je, když máme jeden soubor, uvnitř kterého je definována právě jedna třída, která se nachází v rámci jednoho jmenného prostoru. Jsou programovací jazyky, které to ani jiným způsobem neumí a vyžadují právě striktní situaci jedna třída uvnitř jednoho prostoru (a má to svou logiku a smysl z hlediska přehlednosti).
-2. Druhá možnost je mít uvnitř jednoho souboru v jednom jmenném prostoru více tříd. Typicky je to vhodné v situaci, kdy chceme tyto jednotlivé třídy využít relativně jednoduchým primitivním způsobem. Naopak si představte, že byste měli dvě třídy v jediném souboru a chtěli je souběžně editovat. Vskutku, to není hezká představa skákat  neustále z řádku 353 na řádek 27, není-liž pravda? 
+2. Druhá možnost je mít uvnitř jednoho souboru v *jednom jmenném prostoru více tříd*. Typicky je to vhodné v situaci, kdy chceme tyto jednotlivé třídy využít relativně jednoduchým primitivním způsobem. Naopak si představte, že byste měli dvě třídy v jediném souboru a chtěli je souběžně editovat. Vskutku, to není hezká představa skákat  neustále z řádku 353 na řádek 27, není-liž pravda? 
 3. Pak je tu situace třetí. Můžeme mít dva soubory sdílející jeden a ten stejný jmenný prostor, ve kterých je obsažena právě jedna (ano jedna jediná) třída. Bavíme se pak, poměrně logicky, o tzv. částečných -- partial -- třídách. I tato situace může mít spoje opodstatnění. Poměrně běžný je případ, kdy v jedné partial třídě je generovaný kód (pokud jste někdy pracovali, a vy jste pracovali, ve Windows Forms, znáte to dobře) a ve druhé kód, kterým pak ručně rozšiřujeme kód ze souboru prvního. Důležité je si uvědomit, že pouze dohromady je vytvořena jedna celistvá třída s jedním názvem.
 
 ----
