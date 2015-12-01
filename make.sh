@@ -1,6 +1,6 @@
 #/bin/bash
 
-ncs="neskodny-csharp.txt"
+ncs="neskodny-csharp.adoc"
 
 asciidoctor -b html5 -d book $ncs
 asciidoctor -b docbook -d book $ncs
